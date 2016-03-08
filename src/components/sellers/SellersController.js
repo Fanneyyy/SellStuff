@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("project3App").controller("SellersController",
-function SellersController($scope, AppResource, $translate) {
+function SellersController($scope, AppResource) {
 	// TODO: load data from AppResource! Also, add other methods, such as to
 	// add/update sellers etc.
 
@@ -12,8 +12,4 @@ function SellersController($scope, AppResource, $translate) {
 	AppResource.getSellers().success(function(sellers) {
 		$scope.sellers = sellers;
 	});
-
-	$scope.changeLanguage = function(key) {
-		$translate.use(key);
-	};
 });

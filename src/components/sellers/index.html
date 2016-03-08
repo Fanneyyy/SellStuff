@@ -1,8 +1,6 @@
-<div ng-include="'src/components/nav-header/nav-header.html'"></div>
+<div ng-controller="HeaderController" ng-include="'src/components/nav-header/nav-header.html'" class="margin-bot"></div>
 
-<button type="button" class="btn btn-primary" ng-click="changeLanguage('en')">English</button>
-<button type="button" class="btn btn-primary" ng-click="changeLanguage('is')">Icelandic</button>
-<div translate="sellers.Title"></div>
+<h1 translate="sellers.Title"></h1>
 
 <table class="table">   
 	<thead>
