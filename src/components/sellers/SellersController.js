@@ -20,9 +20,19 @@ function SellersController($scope, AppResource, SellerDlg) {
 	$scope.onAddSeller = function onAddSeller() {
 
 		SellerDlg.show().then(function(seller) {
-			console.log(seller);
 			AppResource.addSeller(seller).success(function (seller) {
 				// seller has been added
+			}).error(function() {
+				// show error with centris notify
+			});
+		});
+	};
+
+	$scope.onEditSeller = function onEditSeller(s) {
+
+		SellerDlg.show(s).then(function(seller) {
+			AppResource.updateSeller(s.id, seller).success(function (seller) {
+				// seller has been edited
 			}).error(function() {
 				// show error with centris notify
 			});

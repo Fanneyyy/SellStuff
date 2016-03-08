@@ -1,7 +1,11 @@
 "use strict";
 
 angular.module("project3App").controller("SellerDlgController",
-function SellerDlgController($scope) {
+function SellerDlgController($scope, currentSeller) {
+
+	if (currentSeller) {
+		$scope.seller = currentSeller;
+	}
 
 	$scope.onOk = function onOk() {
 		// Validation
