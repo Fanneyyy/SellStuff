@@ -1,1 +1,31 @@
-<div> Hér ætti að birtast listi af seljendum - TODO: útfæra það!</div>
+<button type="button" class="btn btn-primary" ng-click="changeLanguage('en')">English</button>
+<button type="button" class="btn btn-primary" ng-click="changeLanguage('is')">Icelandic</button>
+<div translate="sellers.Title"></div>
+
+<table class="table">   
+	<thead>
+	  <tr>
+	  	<td>
+			<a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+				<span translate="sellers.Name">
+				<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+        		<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+			</a>
+        </td>
+        <td>
+			<a href="" ng-click="sortType = 'category'; sortReverse = !sortReverse">
+				<span translate="sellers.Category">
+				<span ng-show="sortType == 'category' && !sortReverse" class="fa fa-caret-down"></span>
+        		<span ng-show="sortType == 'category' && sortReverse" class="fa fa-caret-up"></span>
+			</a>
+        </td>
+	  </tr>
+	</thead>
+
+	<tbody>
+	  <tr ng-repeat="seller in sellers | orderBy:sortType:sortReverse">
+	    <td>{{seller.name}}</td>
+	    <td>{{seller.category}}</td>
+	  </tr>
+	</tbody>
+</table>
