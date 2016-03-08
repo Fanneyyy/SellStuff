@@ -43,6 +43,8 @@ function AppResource() {
 		createSeller(4, "Leirkeraverkstæði Lomma", "Keramik", "https://upload.wikimedia.org/wikipedia/commons/6/67/Potter_at_work,_Jaura,_India.jpg")
 	];
 
+	var sellerId = 5;
+
 	var mockProducts = [
 		createProduct(1,  1, "Ullarvettlingar",  1899, 500, 12, "http://i.imgur.com/MZOmRnH.jpg"),
 		createProduct(1,  2, "Ullarsokkar",      2199, 488,  9, "http://i.imgur.com/0XKznD4.jpg?1"),
@@ -111,6 +113,7 @@ function AppResource() {
 
 		addSeller: function addSeller(seller) {
 			if (mockResource.successAddSeller) {
+				seller.id = sellerId++;
 				mockSellers.push(seller);
 			}
 			return mockHttpPromise(mockResource.successAddSeller, seller);

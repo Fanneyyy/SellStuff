@@ -1,0 +1,13 @@
+{
+	"sellerDlg" : {
+		"Title": "Add new seller",
+		"Name": "Name",
+		"Category": "Category",
+		"Image": "Image",
+		"Cancel": "Cancel",
+		"Submit": "Submit",
+		"EnterName": "Enter name",
+		"EnterCategory": "Enter category",
+		"EnterImage": "Enter image path"
+	}
+}

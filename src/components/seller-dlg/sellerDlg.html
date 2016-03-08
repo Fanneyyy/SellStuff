@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h3 class="modal-title" translate="sellerDlg.Title"></h3>
+</div>
+<div class="modal-body">
+  <form role="form">
+    <div class="form-group">
+      <label for="name" translate="sellerDlg.Name"></label>
+      <input type="text" ng-model="seller.name" class="form-control" id="name" placeholder="{{ 'sellerDlg.EnterName' | translate }}" />
+    </div>
+    <div class="form-group">
+      <label for="category" translate="sellerDlg.Category"></label>
+      <input type="text" ng-model="seller.category" class="form-control" id="category" placeholder="{{ 'sellerDlg.EnterCategory' | translate }}" />
+    </div>
+    <div class="form-group">
+      <label for="image" translate="sellerDlg.Image"></label>
+      <input type="text" ng-model="seller.img" class="form-control" id="image" placeholder="{{ 'sellerDlg.EnterImage' | translate }}" />
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <div class="btn-group" role="group" aria-label="Add seller buttons">
+    <button type="button" class="btn btn-success" ng-click="onOk(seller)" translate="sellerDlg.Submit"></button>
+    <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="sellerDlg.Cancel"></button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+{
+	"sellerDlg" : {
+		"Title": "Bæta við seljenda",
+		"Name": "Nafn",
+		"Category": "Flokkur",
+		"Image": "Mynd",
+		"Cancel": "Hætta við",
+		"Submit": "Bæta við",
+		"EnterName": "Sláðu inn nafn",
+		"EnterCategory": "Sláðu inn flokk",
+		"EnterImage": "Settu inn slóð myndar"
+	}
+}
