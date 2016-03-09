@@ -3,16 +3,7 @@
 describe("HeaderController ", function() {
 
 	var scope;
-	var mockTranslate = function mockTranslate(str, param) {
-		return {
-			then: function(fn) {
-				var msg = str;
-				if (param !== undefined) {
-					str = str + " " + param.value;
-				}
-				fn(str);
-			}
-		};
+	var mockTranslate = function mockTranslate() {
 	};
 
 	mockTranslate.use = function use(str) {
