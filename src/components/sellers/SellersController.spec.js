@@ -16,7 +16,6 @@ describe("SellersController should be unit tested here", function() {
 	}));
 
 	it('should declare the function sortColumns', function() {
-		debugger;
 		expect(scope.sortColumns).toBeDefined();
 	});
 });
