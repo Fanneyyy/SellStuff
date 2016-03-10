@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("project3App").controller("SellersController",
-function SellersController($scope, AppResource, SellerDlg) {
+function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
 	$scope.sortType = 'name'; // set the default sort type
   	$scope.sortReverse = false;  // set the default sort order
 
@@ -18,7 +18,7 @@ function SellersController($scope, AppResource, SellerDlg) {
 
 		SellerDlg.show().then(function(seller) {
 			AppResource.addSeller(seller).success(function (seller) {
-				// seller has been added
+				// centris
 			}).error(function() {
 				// show error with centris notify
 			});
