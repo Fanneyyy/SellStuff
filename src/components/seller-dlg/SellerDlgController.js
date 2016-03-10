@@ -4,16 +4,16 @@ angular.module("project3App").controller("SellerDlgController",
 function SellerDlgController($scope, currentSeller) {
 
 	if (currentSeller) {
-		$scope.seller = currentSeller;
+		$scope.newSeller = currentSeller;
 	}
 
 	$scope.onOk = function onOk() {
-		// Validation
-		$scope.$close($scope.seller);
+		// TODO: Validation
+		$scope.$close($scope.newSeller);
 	};
 
 	$scope.onCancel = function onCancel() {
-		$scope.$dismiss();
+		$scope.$dismiss('cancel');
 	};
 
 });

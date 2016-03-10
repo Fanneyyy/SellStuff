@@ -29,13 +29,15 @@ function SellersController($scope, AppResource, SellerDlg) {
 	};
 
 	$scope.onEditSeller = function onEditSeller(s) {
+		var oldSeller = $.extend({}, s);
+		SellerDlg.show(oldSeller).then(function(seller) {
 
-		SellerDlg.show(s).then(function(seller) {
-			AppResource.updateSeller(s.id, seller).success(function (seller) {
-				// seller has been edited
+			AppResource.updateSeller(oldSeller.id, seller).success(function (seller) {
+				console.log("Seller updated");
 			}).error(function() {
 				// show error with centris notify
 			});
+
 		});
 	};
 });

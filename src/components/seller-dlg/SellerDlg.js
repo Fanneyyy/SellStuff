@@ -15,6 +15,7 @@ angular.module("project3App").factory("SellerDlg",
 				        }
 				    }
 				});
+
 				return modalInstance.result;
 			}
 		};
