@@ -1,0 +1,7 @@
+{
+	"product" : {
+		"Price":            "Verð",
+		"InStock":          "Til á lager",
+		"Sold":             "Seldar"
+	}
+}

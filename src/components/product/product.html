@@ -3,9 +3,9 @@
 		<img ng-src="{{product.imagePath}}" alt="Product Image" class="product-photo text-center equal-height"/>
 	</div>
 	<div class="col-md-6 equal-height">
-		<p>{{product.name}}</p>
-		<p>{{product.price}}</p>
-		<p>{{product.quantitySold}}</p>
-		<p>{{product.quantityInStock}}</p>
+		<p><b>{{product.name}}</b></p>
+		<p><span translate="product.Price"></span>: <span class="pull-right">{{product.price}}</span></p>
+		<p><span translate="product.InStock"></span>: <span class="pull-right">{{product.quantityInStock}}</span></p>
+		<p><span translate="product.Sold"></span>: <span class="pull-right">{{product.quantitySold}}</span></p>
 	</div>
 </div>

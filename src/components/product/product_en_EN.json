@@ -1,0 +1,7 @@
+{
+	"product" : {
+		"Price":            "Price",
+		"InStock":          "In Stock",
+		"Sold":             "Sold"
+	}
+}
