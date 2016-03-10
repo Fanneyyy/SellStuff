@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="styles/app.css">
 </head>
 <body>
+	<div ng-controller="HeaderController" ng-include="'src/components/nav-header/nav-header.html'" class="margin-bot"></div>
+	
 	<main class="container-fluid">
 		<div class="Main clearfix" ng-view id="content"></div>
 	</main>
