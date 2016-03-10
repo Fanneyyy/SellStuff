@@ -1,18 +1,9 @@
-<seller-details 
-	name={{sellerDetails.name}}
-	category={{sellerDetails.category}}
-	image={{sellerDetails.imagePath}}
-></seller-details>
+<div class="col-md-8 col-md-offset-2">
+	<seller-details 
+		name={{sellerDetails.name}}
+		category={{sellerDetails.category}}
+		image={{sellerDetails.imagePath}}
+	></seller-details>
 
-
-<div ng-repeat="product in products">
-	<div class="col-md-3 col-sm-6 col-xs-12 margin-bot">
-		<product
-			name="{{product.name}}"
-			price="{{product.price}}"
-			inStock="{{product.quantityInStock}}"
-			sold="{{product.quantitySold}}"
-			image="{{product.imagePath}}"
-		></product>
-	</div>
+	<products-tab products='products'></products-tab>
 </div>

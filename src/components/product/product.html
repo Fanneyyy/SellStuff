@@ -1,11 +1,11 @@
-<div class="display-table margin-bot product-block">
+<div class="display-table product-block">
 	<div class="col-md-6">
-		<img ng-src="{{image}}" alt="Product Image" class="product-photo text-center equal-height"/>
+		<img ng-src="{{product.imagePath}}" alt="Product Image" class="product-photo text-center equal-height"/>
 	</div>
 	<div class="col-md-6 equal-height">
-		<p>{{name}}</p>
-		<p>{{price}}</p>
-		<p>{{inStock}}</p>
-		<p>{{sold}}</p>
+		<p>{{product.name}}</p>
+		<p>{{product.price}}</p>
+		<p>{{product.quantitySold}}</p>
+		<p>{{product.quantityInStock}}</p>
 	</div>
 </div>
