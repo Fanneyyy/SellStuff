@@ -1,11 +1,12 @@
 <div>
 	<uib-tabset active="activeJustified" justified="true">
 	    <uib-tab index="0" heading="{{ 'productsTab.All' | translate }}">
-	    	<div ng-repeat="product in products">
+	    	<div ng-hide="notEmpty" ng-repeat="product in products">
 				<div class="col-md-3 col-sm-6 col-xs-12 margin-bot">
 					<product product='product'></product>
 				</div>
 			</div>
+			<div ng-hide="notEmpty" class="text-center" translate="productsTab.NoContent"></div>
 	    </uib-tab>
 	    <uib-tab index="1" heading="{{ 'productsTab.TopTen' | translate }}">TODO: Display Top 10</uib-tab>
 	</uib-tabset>

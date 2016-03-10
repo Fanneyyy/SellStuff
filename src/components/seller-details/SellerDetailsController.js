@@ -4,12 +4,17 @@ angular.module("project3App").controller("SellerDetailsController",
 function SellerDetailsController($scope, AppResource, SellerDlg, $routeParams, $rootScope, centrisNotify) {
 	
 	$scope.sellerId = parseInt($routeParams.sellerid);
+	$scope.isEmpty = true;
 
 	AppResource.getSellerProducts($scope.sellerId).success(function(products) {
 		$scope.products = products;
+		if ($scope.products.length > 0) {
+			$scope.isEmpty = false;
+		} else {
+			$scope.isEmpty = true;
+		}
 	}).error(function() {
 		centrisNotify.error("Error while getting products from the seller.");
-		console.log("Error in get seller products");
 	});
 
 	AppResource.getSellerDetails($scope.sellerId).success(function(details) {

@@ -1,0 +1,7 @@
+{
+	"productsTab" : {
+		"All":             "All Products",
+		"TopTen":          "Top 10 Products",
+		"NoContent":       "This seller has no listed products, you can add one by pressing the plus button"
+	}
+}

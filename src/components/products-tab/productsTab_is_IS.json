@@ -1,0 +1,7 @@
+{
+	"productsTab" : {
+		"All":             "Allar Vörur",
+		"TopTen":          "Topp 10 Vörurnar",
+		"NoContent":       "Þessi seljandi hefur engar vörur á skrá, þú getur bætt við vöru með því að ýta á plús takkan"
+	}
+}
