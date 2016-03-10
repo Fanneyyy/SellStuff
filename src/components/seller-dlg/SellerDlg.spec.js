@@ -1,3 +1,4 @@
+"use strict";
 describe('SellerDlgController should be unit tested here', function () {
  
 	var mockSeller = {
@@ -5,7 +6,7 @@ describe('SellerDlgController should be unit tested here', function () {
 		name: 'Sveinn Andri',
 		category: 'Grænmeti',
 		imagePath: 'http://www.visindavefur.is/myndir/graenmeti_030308.jpg'
-	}
+	};
 
   	beforeEach(module('project3App'));
   	beforeEach(module(function ($provide) {
