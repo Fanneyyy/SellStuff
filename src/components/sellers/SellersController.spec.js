@@ -10,12 +10,12 @@ describe("SellersController should be unit tested here", function() {
 		scope = $rootScope.$new();
 
 		var SellersController = $controller('SellersController', {
-			$scope: scope,
+			$scope: scope
 		});
 
 	}));
 
-	it('should declare the function sortColumns', function() {
+	it('should declare sortColumns', function() {
 		expect(scope.sortColumns).toBeDefined();
 	});
 });
