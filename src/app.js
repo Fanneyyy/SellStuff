@@ -5,6 +5,10 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap", "sharedServices", "pas
 	$routeProvider.when("/", {
 		controller: "SellersController",
 		templateUrl: "components/sellers/index.html"
+	})
+	.when("/sellerdetails/:sellerid", {
+		controller: "SellerDetailsController",
+		templateUrl: "components/seller-details/index.html"
 	});
 	$translateProvider.fallbackLanguage('en');
 	$translateProvider.registerAvailableLanguageKeys(['en', 'is'], {

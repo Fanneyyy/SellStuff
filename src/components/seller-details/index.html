@@ -1,0 +1,34 @@
+<seller-details 
+	name={{sellerDetails.name}}
+	category={{sellerDetails.category}}
+	image={{sellerDetails.imagePath}}>
+</seller-details>
+
+<table class="table">
+	<thead>
+		  <tr>
+		  	<td>
+				Name:
+	        </td>
+	        <td>
+				Price:
+	        </td>
+	        <td>
+				quantity in stock:
+	        </td>
+	        <td>
+				quantity sold:
+	        </td>
+		  </tr>
+		</thead>
+
+		<tbody>
+		  <tr ng-repeat="product in products">
+		  	<td><img ng-src="{{product.imagePath}}" alt="Product Image" height="42"/></td>
+		    <td>{{product.name}}</td>
+		    <td>{{product.price}}</td>
+		    <td>{{product.quantityInStock}}</td>
+		    <td>{{product.quantitySold}}</td>
+		  </tr>
+		</tbody>
+</table>

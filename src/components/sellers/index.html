@@ -1,5 +1,3 @@
-<div ng-controller="HeaderController" ng-include="'src/components/nav-header/nav-header.html'" class="margin-bot"></div>
-
 <div class="col-md-8 col-md-offset-2">
 	<div class="col-xs-6">
 		<h1 translate="sellers.Title"></h1>
@@ -28,9 +26,9 @@
 		  </tr>
 		</thead>
 
-		<tbody>
+		<tbody data-link="row" class="rowlink">
 		  <tr ng-repeat="seller in sellers | orderBy:sortType:sortReverse track by seller.id">
-		    <td>{{seller.name}}</td>
+		    <td><a ng-href="#/sellerdetails/{{seller.id}}">{{seller.name}}</a></td>
 		    <td>{{seller.category}}</td>
 		    <td><button type="button" ng-click="onEditSeller(seller)" title="Edit Seller" class="btn btn-success btn-sm pull-right circled"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
 		  </tr>
