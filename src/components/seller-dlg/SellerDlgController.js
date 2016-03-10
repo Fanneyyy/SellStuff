@@ -5,7 +5,7 @@ function SellerDlgController($scope, currentSeller) {
 
 	if (currentSeller) {
 		$scope.newSeller = currentSeller;
-	}
+	};
 
 	$scope.onOk = function onOk() {
 		// TODO: Validation
