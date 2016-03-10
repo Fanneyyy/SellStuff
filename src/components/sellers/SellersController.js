@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("project3App").controller("SellersController",
-function SellersController($scope, AppResource, SellerDlg) {
+function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
 	$scope.sortType = 'name'; // set the default sort type
   	$scope.sortReverse = false;  // set the default sort order
 
@@ -19,9 +19,13 @@ function SellersController($scope, AppResource, SellerDlg) {
 		SellerDlg.show().then(function(seller) {
 			AppResource.addSeller(seller).success(function (seller) {
 				// seller has been added
+				centrisNotify.success(seller.name + " has been successfully added.");
 			}).error(function() {
+				centrisNotify.error("The seller will not be added due to error.");
 				// show error with centris notify
 			});
+		}, function() {
+			centrisNotify.info("The seller will not be added.");
 		});
 	};
 
@@ -30,8 +34,12 @@ function SellersController($scope, AppResource, SellerDlg) {
 		SellerDlg.show(oldSeller).then(function(seller) {
 
 			AppResource.updateSeller(oldSeller.id, seller).success(function (seller) {
+				centrisNotify.success(seller.name + " has been successfully edited.");
+
 				console.log("Seller updated");
 			}).error(function() {
+				centrisNotify.error(oldSeller.name + "was not edited.");
+
 				// show error with centris notify
 			});
 

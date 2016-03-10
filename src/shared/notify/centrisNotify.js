@@ -63,12 +63,14 @@ function(toastr, toastrConfig, $translate, $rootScope) {
 
 		// In case the previous toast was an undo toast,
 		// which overrode the template path:
-		toastrConfig.templates.toast = "components/centris-notify/centris-notify.tpl.html";
+		toastrConfig.templates.toast = "shared/notify/centris-notify.tpl.html";
 
 		if (type === "success") {
 			toastr.success(message, title, options);
 		} else if (type === "error") {
 			toastr.error(message, title, options);
+		} else if (type === "info") {
+			toastr.info(message, title, options);
 		}
 	}
 
@@ -91,7 +93,7 @@ function(toastr, toastrConfig, $translate, $rootScope) {
 
 		// Slight hack, but hopefully the library will be able to
 		// officcially support per-toast templates in later versions
-		toastrConfig.templates.toast = "components/centris-notify/centris-notify-undo.tpl.html";
+		toastrConfig.templates.toast = "shared/notify/centris-notify-undo.tpl.html";
 
 		// HACK! Because toastr doesn't allow us to pass in
 		// any "Item Data" (see MFC CListCtrl), we need to
@@ -129,6 +131,9 @@ function(toastr, toastrConfig, $translate, $rootScope) {
 		},
 		errorWithParam: function errorWithParam(messageKey, param) {
 			notificationFunctionWithParam("error", messageKey, param);
+		},
+		info: function info(messageKey, titleKey) {
+			notificationFunction("info", titleKey, messageKey);
 		},
 
 		// This function only comes in the "success" variation, since
