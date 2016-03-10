@@ -2,6 +2,7 @@
 	"product" : {
 		"Price":            "Verð",
 		"InStock":          "Til á lager",
-		"Sold":             "Seldar"
+		"Sold":             "Seldar",
+		"ProductImage":     "Mynd af vöru"
 	}
 }

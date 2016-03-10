@@ -1,0 +1,16 @@
+{
+	"productDlg" : {
+		"Title": "Add new Product",
+		"Name": "Name",
+		"Price": "Price",
+		"InStock": "In stock",
+		"Sold":    "Sold",
+		"Image": "Image",
+		"Cancel": "Cancel",
+		"Submit": "Submit",
+		"EnterName": "Enter name",
+		"EnterPrice": "Enter price",
+		"EnterImage": "Enter image path",
+		"AddProductButton": "Add Product Buttons"
+	}
+}

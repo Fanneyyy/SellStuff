@@ -164,6 +164,9 @@ function AppResource() {
 				var seller = _.find(mockSellers, function(o){ return o.id === id;});
 				if (seller) {
 					success = true;
+					console.log(product);
+					var productId = this.getSellerProducts(id).length;
+					product.id = productId+1;
 					mockProducts.push({
 						id: seller.id,
 						product: product
@@ -171,7 +174,7 @@ function AppResource() {
 				}
 			}
 
-			return mockHttpPromise(success, product);
+			return mockHttpPromise(mockResource.successAddSellerProduct, product);
 		}
 
 		// TODO: the updateProduct() function is left as an exercise to

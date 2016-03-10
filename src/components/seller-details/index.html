@@ -1,9 +1,14 @@
 <div class="col-md-8 col-md-offset-2">
+
 	<seller-details 
 		name={{sellerDetails.name}}
 		category={{sellerDetails.category}}
 		image={{sellerDetails.imagePath}}
 	></seller-details>
+
+	<div class="col-md-12"> 
+		<button type="button" ng-click="onAddProduct()" title="{{ 'productDetails.AddProduct' | translate }}" class="btn btn-success pull-right circled"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+	</div>
 
 	<products-tab products='products'></products-tab>
 </div>

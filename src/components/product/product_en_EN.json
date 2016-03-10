@@ -2,6 +2,7 @@
 	"product" : {
 		"Price":            "Price",
 		"InStock":          "In Stock",
-		"Sold":             "Sold"
+		"Sold":             "Sold",
+		"ProductImage":     "Product Image"
 	}
 }

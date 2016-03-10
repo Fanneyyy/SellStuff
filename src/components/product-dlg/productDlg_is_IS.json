@@ -1,0 +1,16 @@
+{
+	"productDlg" : {
+		"Title": "Bæta við vöru",
+		"Name": "Nafn",
+		"Price": "Verð",
+		"InStock": "Til á lager",
+		"Sold":    "Fjöldi seldra vara",
+		"Image": "Mynd",
+		"Cancel": "Hætta við",
+		"Submit": "Bæta við",
+		"EnterName": "Sláðu inn nafn",
+		"EnterPrice": "Sláðu inn verð",
+		"EnterImage": "Settu inn slóð myndar",
+		"AddProductButton": "Takkar fyrir bæta við vöru"
+	}
+}
