@@ -36,5 +36,4 @@ describe("SellerDlgController should be unit tested here", function() {
 		scope.onCancel();
 		expect(scope.$dismiss).toHaveBeenCalled();
 	});
-// TODO: Need to find how to use currentSeller for this controller
 });
