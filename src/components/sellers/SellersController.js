@@ -18,10 +18,12 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
 
 		SellerDlg.show().then(function(seller) {
 			AppResource.addSeller(seller).success(function (seller) {
-				// centris
+				centrisNotify.success(seller.name + " has been successfully added.");
 			}).error(function() {
-				// show error with centris notify
+				centrisNotify.error("The seller will not be added due to error.");
 			});
+		}, function() {
+			centrisNotify.info("The seller will not be added.");
 		});
 	};
 
@@ -30,9 +32,11 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
 		SellerDlg.show(oldSeller).then(function(seller) {
 
 			AppResource.updateSeller(oldSeller.id, seller).success(function (seller) {
+				centrisNotify.success(seller.name + " has been successfully edited.");
+
 				console.log("Seller updated");
 			}).error(function() {
-				// show error with centris notify
+				centrisNotify.error(oldSeller.name + "was not edited.");
 			});
 
 		});
