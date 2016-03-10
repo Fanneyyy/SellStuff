@@ -9,7 +9,7 @@ describe('SellerDlgController should be unit tested here', function () {
         AppResource.getSellerDetails(1).success(function(details) {
             mockSeller = details;
         });
-    }))
+    }));
 
     it('can get an instance of SellerDlg', inject(function(SellerDlg) {
         expect(SellerDlg).toBeDefined();

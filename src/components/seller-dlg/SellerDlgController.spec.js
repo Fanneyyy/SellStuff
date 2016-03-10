@@ -6,16 +6,13 @@ describe("SellerDlgController should be unit tested here", function() {
 
 	var mockSeller;
 
-
-
-
 	beforeEach(module("project3App"));
 
 	beforeEach(inject(function(AppResource) {
 		AppResource.getSellerDetails(1).success(function(details) {
 		mockSeller = details;
 		});
-	}))
+	}));
 
 	beforeEach(inject(function ($rootScope, $controller) {
 		scope = $rootScope.$new();
@@ -39,10 +36,4 @@ describe("SellerDlgController should be unit tested here", function() {
 		scope.onCancel();
 		expect(scope.$dismiss).toHaveBeenCalled();
 	});
-	/*
-	it('should call the return success for all sellers', inject(function(AppResource) {
-		AppResource.getSellers();
-		expect(scope.$dismiss).toHaveBeenCalled();
-	}));
-*/
 });
