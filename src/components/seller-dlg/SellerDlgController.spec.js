@@ -4,15 +4,18 @@ describe("SellerDlgController should be unit tested here", function() {
 
 	var scope;
 
-	var mockSeller = {
-		id: 1,
-		name: 'Sveinn Andri',
-		category: 'Grænmeti',
-		imagePath: 'http://www.visindavefur.is/myndir/graenmeti_030308.jpg'
-	};
+	var mockSeller;
+
+
 
 
 	beforeEach(module("project3App"));
+
+	beforeEach(inject(function(AppResource) {
+		AppResource.getSellerDetails(1).success(function(details) {
+		mockSeller = details;
+		});
+	}))
 
 	beforeEach(inject(function ($rootScope, $controller) {
 		scope = $rootScope.$new();
@@ -28,12 +31,18 @@ describe("SellerDlgController should be unit tested here", function() {
 	   	spyOn(scope, "$dismiss");
 
 	}));
-	it('should call the function scope.close with mockSeller', function() {
+	it('should call the function scope.close with mockSeller', inject(function(AppResource) {
 		scope.onOk();
 		expect(scope.$close).toHaveBeenCalledWith(mockSeller);
-	});
+	}));
 	it('should call the function scope.dismiss', function() {
 		scope.onCancel();
 		expect(scope.$dismiss).toHaveBeenCalled();
 	});
+	/*
+	it('should call the return success for all sellers', inject(function(AppResource) {
+		AppResource.getSellers();
+		expect(scope.$dismiss).toHaveBeenCalled();
+	}));
+*/
 });
