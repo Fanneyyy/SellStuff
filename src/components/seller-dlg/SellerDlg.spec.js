@@ -1,10 +1,8 @@
 "use strict";
 describe('SellerDlgController should be unit tested here', function () {
-
     var mockSeller;
 
     beforeEach(module('project3App'));
-
     beforeEach(inject(function(AppResource) {
         AppResource.getSellerDetails(1).success(function(details) {
             mockSeller = details;
