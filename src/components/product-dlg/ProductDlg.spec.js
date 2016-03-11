@@ -1,5 +1,5 @@
 "use strict";
-describe('ProducDlgController should be unit tested here', function () {
+describe('ProductDlg factory should be unit tested here', function () {
 
     // var mockSeller;
 

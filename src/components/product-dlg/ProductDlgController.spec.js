@@ -2,27 +2,26 @@
 
 describe("ProductDlgController should be unit tested here", function() {
 
-	// var scope;
+	var scope;
+	var mockProduct;
 
-	// var mockSeller;
+	beforeEach(module("project3App"));
 
-	// beforeEach(module("project3App"));
+	beforeEach(inject(function(AppResource) {
+		AppResource.getSellerDetails(1).success(function(details) {
+		mockSeller = details;
+		});
+	}));
 
-	// beforeEach(inject(function(AppResource) {
-	// 	AppResource.getSellerDetails(1).success(function(details) {
-	// 	mockSeller = details;
-	// 	});
-	// }));
+	beforeEach(inject(function ($rootScope, $controller) {
+		scope = $rootScope.$new();
+		scope.$close = function(seller){};
+		scope.$dismiss = function(){};
 
-	// beforeEach(inject(function ($rootScope, $controller) {
-	// 	scope = $rootScope.$new();
-	// 	scope.$close = function(seller){};
-	// 	scope.$dismiss = function(){};
-
-	// 	var SellerDlgController = $controller('SellerDlgController', {
-	// 		$scope: scope,
-	// 		currentSeller: mockSeller,
-	// 	});
+		var SellerDlgController = $controller('SellerDlgController', {
+			$scope: scope,
+			currentSeller: mockSeller,
+		});
 
 	//     spyOn(scope, "$close");
 	//    	spyOn(scope, "$dismiss");
