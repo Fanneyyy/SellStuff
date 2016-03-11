@@ -23,7 +23,7 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
                 centrisNotify.error("sellers.Messages.SaveFailed");
             });
         }, function() {
-            centrisNotify.info("sellers.Messages.SaveCancelled");
+            centrisNotify.warning("sellers.Messages.SaveCancelled");
         });
     };
 
@@ -38,7 +38,7 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
                 centrisNotify.error("sellers.Messages.EditFailed");
             });
         }, function() {
-            centrisNotify.info("sellers.Messages.EditCancelled");
+            centrisNotify.warning("sellers.Messages.EditCancelled");
         });
     };
 });

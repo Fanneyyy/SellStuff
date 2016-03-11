@@ -22,10 +22,10 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 		ProductDlg.show().then(function(product) {
 
 			AppResource.addSellerProduct($scope.sellerId, product).success(function (product) {
-				centrisNotify.success(product.name + " has been successfully added.");
+				centrisNotify.success("productDlg.Messages.SaveSucceeded");
 				$scope.products.push(product);
 			}).error(function() {
-				centrisNotify.error("The product will not be added due to error.");
+				centrisNotify.error("productDlg.Messages.SaveFailed");
 			});
 
 		}, function() {

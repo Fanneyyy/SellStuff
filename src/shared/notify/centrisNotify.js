@@ -71,6 +71,8 @@ function(toastr, toastrConfig, $translate, $rootScope) {
             toastr.error(message, title, options);
         } else if (type === "info") {
             toastr.info(message, title, options);
+        } else if (type === "warning") {
+            toastr.warning(message, title, options);
         }
     }
 
@@ -134,6 +136,9 @@ function(toastr, toastrConfig, $translate, $rootScope) {
         },
         info: function info(messageKey, titleKey) {
             notificationFunction("info", titleKey, messageKey);
+        },
+        warning: function warning(messageKey, titleKey) {
+            notificationFunction("warning", titleKey, messageKey);
         },
 
         // This function only comes in the "success" variation, since
