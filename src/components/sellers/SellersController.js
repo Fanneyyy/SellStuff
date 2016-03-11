@@ -18,12 +18,12 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
 
         SellerDlg.show().then(function(seller) {
             AppResource.addSeller(seller).success(function (seller) {
-                centrisNotify.success(seller.name + " has been successfully added.");
+                centrisNotify.success("sellers.Messages.SaveSucceeded");
             }).error(function() {
-                centrisNotify.error("The seller will not be added due to error.");
+                centrisNotify.error("sellers.Messages.SaveFailed");
             });
         }, function() {
-            centrisNotify.info("The seller will not be added.");
+            centrisNotify.info("sellers.Messages.SaveCancelled");
         });
     };
 
@@ -32,12 +32,13 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
         SellerDlg.show(oldSeller).then(function(seller) {
 
             AppResource.updateSeller(oldSeller.id, seller).success(function (seller) {
-                centrisNotify.success(seller.name + " has been successfully edited.");
+                centrisNotify.success("sellers.Messages.EditSucceeded");
 
             }).error(function() {
-                centrisNotify.error(oldSeller.name + "was not edited.");
+                centrisNotify.error("sellers.Messages.EditFailed");
             });
-
+        }, function() {
+            centrisNotify.info("sellers.Messages.EditCancelled");
         });
     };
 });
