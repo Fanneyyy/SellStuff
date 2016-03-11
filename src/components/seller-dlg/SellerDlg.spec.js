@@ -15,6 +15,6 @@ describe('SellerDlgController should be unit tested here', function () {
 
     it('SellerDlg.show should be defined', inject(function(SellerDlg) {
         SellerDlg.show(mockSeller);
-        expect(SellerDlg).toBeDefined();
+        expect(SellerDlg.show).toBeDefined();
     }));
 });

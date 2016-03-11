@@ -1,22 +1,22 @@
 "use strict";
 describe('ProductDlg factory should be unit tested here', function () {
 
-    // var mockSeller;
+    var mockProduct;
 
-    // beforeEach(module('project3App'));
+    beforeEach(module('project3App'));
 
-    // beforeEach(inject(function(AppResource) {
-    //     AppResource.getSellerDetails(1).success(function(details) {
-    //         mockSeller = details;
-    //     });
-    // }));
+    beforeEach(inject(function(AppResource) {
+        AppResource.getSellerProducts(1).success(function(details) {
+            mockProduct = details[0];
+        });
+    }));
 
-    // it('can get an instance of SellerDlg', inject(function(SellerDlg) {
-    //     expect(SellerDlg).toBeDefined();
-    // }));
+    it('can get an instance of SellerDlg', inject(function(ProductDlg) {
+        expect(ProductDlg).toBeDefined();
+    }));
 
-    // it('SellerDlg.show should be defined', inject(function(SellerDlg) {
-    //     SellerDlg.show(mockSeller);
-    //     expect(SellerDlg).toBeDefined();
-    // }));
+    it('SellerDlg.show should be defined', inject(function(ProductDlg) {
+        ProductDlg.show(mockProduct);
+        expect(ProductDlg.show).toBeDefined();
+    }));
 });
