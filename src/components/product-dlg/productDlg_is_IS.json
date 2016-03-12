@@ -8,6 +8,15 @@
 		"Image": "Mynd",
 		"Cancel": "Hætta við",
 		"Submit": "Bæta við",
+		"Messages" : {
+			"LoadFailed":            "Ekki tókst að sækja lista yfir vörur",
+			"SaveSucceeded":         "Nýrri vöru hefur verið bætt við",
+			"SaveFailed":            "Því miður tókst ekki að bæta við nýrri vöru",
+			"SaveCancelled":         "Vöru var ekki bætt við",
+			"EditSucceeded":         "Vöru hefur verið breytt",
+			"EditFailed":            "Því miður tókst ekki að breyta vöru",
+			"EditCancelled":         "Vöru var ekki breytt"
+		},
 		"EnterName": "Sláðu inn nafn",
 		"EnterPrice": "Sláðu inn verð",
 		"EnterImage": "Settu inn slóð myndar",

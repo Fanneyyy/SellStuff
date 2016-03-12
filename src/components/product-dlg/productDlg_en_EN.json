@@ -8,6 +8,15 @@
 		"Image": "Image",
 		"Cancel": "Cancel",
 		"Submit": "Submit",
+		"Messages" : {
+			"LoadFailed":            "Failed to load the list of products",
+			"SaveSucceeded":         "The product has been added successfully",
+			"SaveFailed":            "Unfortunately we could not add a new product",
+			"SaveCancelled":         "The product was not added",
+			"EditSucceeded":         "The product has been edited successfully",
+			"EditFailed":            "Unfortunately we could not edit the product",
+			"EditCancelled":         "The product was not edited"
+		},
 		"EnterName": "Enter name",
 		"EnterPrice": "Enter price",
 		"EnterImage": "Enter image path",
