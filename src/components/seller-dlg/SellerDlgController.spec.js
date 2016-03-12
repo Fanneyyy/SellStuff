@@ -10,7 +10,7 @@ describe("SellerDlgController should be unit tested here", function() {
 
     beforeEach(inject(function(AppResource) {
         AppResource.getSellerDetails(1).success(function(details) {
-        mockSeller = details;
+            mockSeller = details;
         });
     }));
 

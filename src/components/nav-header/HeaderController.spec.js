@@ -2,11 +2,11 @@
 
 describe("HeaderController ", function() {
 
-	var scope;
-	var mockTranslate = function mockTranslate() {
-	};
+	var scope, mockTranslate;
 
-	mockTranslate.use = function use(str) {
+	mockTranslate = {
+		use: function(str) {
+		}
 	};
 
 	beforeEach(module("project3App"));
@@ -27,7 +27,7 @@ describe("HeaderController ", function() {
 	});
 
 	it('should call the function use from translate with correct argument', function() {
-		var key = 'is';
+		var key = 'is';		
 		scope.changeLanguage(key);
 		expect(mockTranslate.use).toHaveBeenCalledWith('is');
 	});
