@@ -12,6 +12,7 @@
 
  	<uib-tabset active="activeJustified" justified="true">
 	    <uib-tab index="0" heading="{{ 'productsTab.All' | translate }}">
+
 	    	<div ng-hide="!products.length" ng-model="products" ng-repeat="product in products">
 				<div class="col-md-4 col-sm-6 col-xs-12 margin-bot">
 
@@ -23,8 +24,23 @@
 				</div>
 			</div>
 			<div ng-show="!products.length" class="text-center" translate="productsTab.NoContent"></div>
+
 	    </uib-tab>
-	    <uib-tab index="1" heading="{{ 'productsTab.TopTen' | translate }}">TODO: Display Top 10</uib-tab>
+	    <uib-tab index="1" heading="{{ 'productsTab.TopTen' | translate }}">
+
+	    	<div ng-hide="!products.length" ng-model="topTen" ng-repeat="product in topTen">
+				<div class="col-md-4 col-sm-6 col-xs-12 margin-bot">
+
+					  <product 
+					  	product="product" 
+					  	on-edit="onEditProduct(product)">
+					  <product>
+				
+				</div>
+			</div>
+			<div ng-show="!products.length" class="text-center" translate="productsTab.NoContent"></div>
+
+	    </uib-tab>
 	</uib-tabset>
 
 </div>

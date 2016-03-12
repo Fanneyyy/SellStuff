@@ -5,9 +5,17 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 	
 	$scope.sellerId = parseInt($routeParams.sellerid);
 	$scope.products = [];
+	$scope.topTen = [];
+
+	$scope.getTopTen = function getTopTen() {
+		$scope.topTen = _.sortBy($scope.products, _.property('quantitySold')).reverse();
+		$scope.topTen = _.take($scope.topTen, [10]);
+		console.log($scope.topTen);
+	};
 
 	AppResource.getSellerProducts($scope.sellerId).success(function(products) {
 		$scope.products = products;
+		$scope.getTopTen();
 	}).error(function() {
 		centrisNotify.error("Error while getting products from the seller.");
 	});

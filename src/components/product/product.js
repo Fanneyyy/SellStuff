@@ -3,7 +3,7 @@
 angular.module("project3App").directive('product', function() {
 	return {
 		restrict: 'E',
-		transclude: true,
+		replace: true,
 		scope: {
 			'product': '=',
 			'edit': '&onEdit'
