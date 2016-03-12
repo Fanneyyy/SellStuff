@@ -34,11 +34,12 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
 			AppResource.updateSeller(oldSeller.id, seller).success(function (seller) {
 				centrisNotify.success(seller.name + " has been successfully edited.");
 
-				console.log("Seller updated");
 			}).error(function() {
-				centrisNotify.error(oldSeller.name + "was not edited.");
+				centrisNotify.error(oldSeller.name + " was not edited.");
 			});
 
+		}, function() {
+			centrisNotify.info(oldSeller.name + " will not be edited.");
 		});
 	};
 });

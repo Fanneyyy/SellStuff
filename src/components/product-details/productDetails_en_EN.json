@@ -1,0 +1,12 @@
+{
+	"productDlg" : {
+		"Name": "Name",
+		"Price": "Price",
+		"InStock": "In stock",
+		"Sold":    "Sold",
+		"Image": "Image",
+		"OnEdit": "Edit",
+		"OnDone": "Done",
+		"ProductDetailsButtons": "Buttons for product details"
+	}
+}

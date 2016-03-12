@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
 
 	<seller-details 
 		name={{sellerDetails.name}}
@@ -6,9 +6,25 @@
 		image={{sellerDetails.imagePath}}
 	></seller-details>
 
-	<div class="col-md-12"> 
+	<div class="col-xs-12"> 
 		<button type="button" ng-click="onAddProduct()" title="{{ 'productDetails.AddProduct' | translate }}" class="btn btn-success pull-right circled"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 	</div>
 
-	<products-tab products='products'></products-tab>
+ 	<uib-tabset active="activeJustified" justified="true">
+	    <uib-tab index="0" heading="{{ 'productsTab.All' | translate }}">
+	    	<div ng-hide="!products.length" ng-model="products" ng-repeat="product in products">
+				<div class="col-md-4 col-sm-6 col-xs-12 margin-bot">
+
+					  <product 
+					  	product="product" 
+					  	on-edit="onEditProduct(product)">
+					  <product>
+				
+				</div>
+			</div>
+			<div ng-show="!products.length" class="text-center" translate="productsTab.NoContent"></div>
+	    </uib-tab>
+	    <uib-tab index="1" heading="{{ 'productsTab.TopTen' | translate }}">TODO: Display Top 10</uib-tab>
+	</uib-tabset>
+
 </div>

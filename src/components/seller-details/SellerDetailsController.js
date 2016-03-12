@@ -1,9 +1,10 @@
 "use strict";
 
 angular.module("project3App").controller("SellerDetailsController",
-function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, $rootScope, centrisNotify) {
+function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, centrisNotify) {
 	
 	$scope.sellerId = parseInt($routeParams.sellerid);
+	$scope.products = [];
 
 	AppResource.getSellerProducts($scope.sellerId).success(function(products) {
 		$scope.products = products;
@@ -33,18 +34,25 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 		});
 	};
 
-	// $scope.onEditSeller = function onEditSeller(s) {
-	// 	var oldSeller = $.extend({}, s);
-	// 	SellerDlg.show(oldSeller).then(function(seller) {
+	$scope.onEditProduct = function onEditProduct(p) {
 
-	// 		AppResource.updateSeller(oldSeller.id, seller).success(function (seller) {
-	// 			centrisNotify.success(seller.name + " has been successfully edited.");
+		var oldProduct = $.extend({}, p);
+		ProductDlg.show(oldProduct).then(function(product) {
 
-	// 			console.log("Seller updated");
-	// 		}).error(function() {
-	// 			centrisNotify.error(oldSeller.name + "was not edited.");
-	// 		});
+			AppResource.updateSellerProduct($scope.sellerId, oldProduct.id, product).success(function (product) {
+				var current = _.find($scope.products, function(o){ return o.id === product.id;});
+				current.name 			= product.name;
+				current.price  			= product.price;
+				current.quantitySold  	= product.quantitySold;
+				current.quantityInStock = product.quantityInStock;
+				current.imagePath 		= product.imagePath;
+				centrisNotify.success(product.name + " has been successfully edited.");
+			}).error(function() {
+				centrisNotify.error(oldProduct.name + "was not edited.");
+			});
 
-	// 	});
-	// };
+		}, function() {
+			centrisNotify.info(oldProduct.name + " will not be edited.");
+		});
+	};
 });

@@ -1,0 +1,12 @@
+{
+	"productDlg" : {
+		"Name": "Nafn",
+		"Price": "Verð",
+		"InStock": "Til á lager",
+		"Sold":    "Fjöldi seldra vara",
+		"Image": "Mynd",
+		"OnEdit": "Breyta",
+		"OnDone": "Hætta",
+		"ProductDetailsButtons": "Takkar fyrir frekari upplýsingar um vöru"
+	}
+}

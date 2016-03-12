@@ -1,10 +1,10 @@
 "use strict";
 
-angular.module("project3App").directive('productsTab', function() {
+angular.module("project3App").directive('productsTab', function($compile) {
     return {
         restrict: 'E',
         templateUrl: 'components/products-tab/productsTab.html',
-        replace: true,
+        transclude: true,
         scope: {
             products: '='
         }

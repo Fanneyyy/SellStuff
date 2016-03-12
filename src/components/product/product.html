@@ -1,4 +1,4 @@
-<div class="display-table product-block">
+<div class="display-table product-block" ng-model="product" ng-click="edit({product: product})">
 	<div class="col-md-6">
 		<img ng-src="{{product.imagePath}}" alt="{{ 'product.ProductImage' | translate }}" class="product-photo text-center equal-height"/>
 	</div>
