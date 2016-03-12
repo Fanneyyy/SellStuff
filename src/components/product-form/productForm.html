@@ -1,0 +1,22 @@
+<form role="form">
+  <div class="form-group">
+    <label for="name" translate="productForm.Name"></label>
+    <input type="text" ng-model="newProduct.name" class="form-control" id="name" placeholder="{{ 'productForm.EnterName' | translate }}" />
+  </div>
+  <div class="form-group">
+    <label for="price" translate="productForm.Price"></label>
+    <input type="text" ng-model="newProduct.price" class="form-control" id="price" placeholder="{{ 'productForm.EnterPrice' | translate }}" />
+  </div>
+  <div class="form-group">
+    <label for="inStock" translate="productForm.InStock"></label>
+    <input type="text" ng-model="newProduct.quantityInStock" class="form-control" id="quantityInStock" placeholder="{{ 'productForm.EnterInStock' | translate }}" />
+  </div>
+  <div class="form-group">
+    <label for="price" translate="productForm.Sold"></label>
+    <input type="text" ng-model="newProduct.quantitySold" class="form-control" id="quantitySold" placeholder="{{ 'productForm.EnterSold' | translate }}" />
+  </div>
+  <div class="form-group">
+    <label for="image" translate="productForm.Image"></label>
+    <input type="text" ng-model="newProduct.imagePath" class="form-control" id="image" placeholder="{{ 'productForm.EnterImage' | translate }}" />
+  </div>
+</form>

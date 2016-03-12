@@ -18,17 +18,20 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
     $scope.onAddSeller = function onAddSeller() {
 
         SellerDlg.show().then(function(seller) {
+            
             AppResource.addSeller(seller).success(function (seller) {
                 centrisNotify.success("sellers.Messages.SaveSucceeded");
             }).error(function() {
                 centrisNotify.error("sellers.Messages.SaveFailed");
             });
+
         }, function() {
             centrisNotify.warning("sellers.Messages.SaveCancelled");
         });
     };
 
     $scope.onEditSeller = function onEditSeller(s) {
+
         var oldSeller = $.extend({}, s);
         SellerDlg.show(oldSeller).then(function(seller) {
 

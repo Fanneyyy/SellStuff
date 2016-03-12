@@ -1,13 +1,14 @@
 {
 	"productDlg" : {
-		"Title": "Add new Product",
-		"Name": "Name",
-		"Price": "Price",
-		"InStock": "In stock",
-		"Sold":    "Sold",
-		"Image": "Image",
-		"Cancel": "Cancel",
-		"Submit": "Submit",
+		"TitleAdd":                  "Add new product",
+		"TitleEdit":                 "Edit product",
+		"Name": 				     "Name",
+		"Price":                     "Price",
+		"InStock":                   "In stock",
+		"Sold":                      "Sold",
+		"Image":                     "Image",
+		"Cancel":                    "Cancel",
+		"Submit":                    "Submit",
 		"Messages" : {
 			"LoadFailed":            "Failed to load the list of products",
 			"SaveSucceeded":         "The product has been added successfully",
@@ -17,11 +18,6 @@
 			"EditFailed":            "Unfortunately we could not edit the product",
 			"EditCancelled":         "The product was not edited"
 		},
-		"EnterName": "Enter name",
-		"EnterPrice": "Enter price",
-		"EnterImage": "Enter image path",
-		"EnterInStock": "Enter number of products in stock",
-		"EnterSold": "Enter number of products sold",
 		"AddProductButton": "Add Product Buttons"
 	}
 }

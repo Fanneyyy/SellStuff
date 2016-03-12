@@ -62,4 +62,9 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 			centrisNotify.info(oldProduct.name + " will not be edited.");
 		});
 	};
+
+	$scope.onViewProduct = function onViewProduct(p) {
+		ProductDlg.show(p).then(function(p) {
+		});
+	};
 });
