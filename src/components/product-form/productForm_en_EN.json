@@ -1,0 +1,17 @@
+{
+	"productForm" : {
+		"Title": "Add new Product",
+		"Name": "Name",
+		"Price": "Price",
+		"InStock": "In stock",
+		"Sold":    "Sold",
+		"Image": "Image",
+		"Cancel": "Cancel",
+		"Submit": "Submit",
+		"EnterName": "Enter name",
+		"EnterPrice": "Enter price",
+		"EnterImage": "Enter image path",
+		"EnterInStock": "Enter number of products in stock",
+		"EnterSold": "Enter number of products sold"
+	}
+}

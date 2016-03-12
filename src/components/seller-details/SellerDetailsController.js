@@ -10,7 +10,6 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 	$scope.getTopTen = function getTopTen() {
 		$scope.topTen = _.sortBy($scope.products, _.property('quantitySold')).reverse();
 		$scope.topTen = _.take($scope.topTen, [10]);
-		console.log($scope.topTen);
 	};
 
 	AppResource.getSellerProducts($scope.sellerId).success(function(products) {
@@ -61,6 +60,11 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 
 		}, function() {
 			centrisNotify.info(oldProduct.name + " will not be edited.");
+		});
+	};
+
+	$scope.onViewProduct = function onViewProduct(p) {
+		ProductDlg.show(p).then(function(p) {
 		});
 	};
 });

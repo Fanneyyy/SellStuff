@@ -7,6 +7,7 @@
 		"Image": "Mynd",
 		"OnEdit": "Breyta",
 		"OnDone": "Hætta",
+		"OnView": "Skoða vöru",
 		"ProductDetailsButtons": "Takkar fyrir frekari upplýsingar um vöru"
 	}
 }

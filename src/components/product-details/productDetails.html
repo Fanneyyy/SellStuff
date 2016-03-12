@@ -1,12 +1,13 @@
 <div class="modal-header">
-  <h3 class="modal-title" translate="product.name"></h3>
+  <h3 class="modal-title">{{newProduct.name}}</h3>
 </div>
 <div class="modal-body">
-
-</div>
-<div class="modal-footer">
-  <div class="btn-group" role="group" aria-label="{{ 'productDetails.ProductDetailsButtons' | translate }}">
-    <button type="button" class="btn btn-success" ng-click="onEdit(product)" translate="productDetails.OnEdit"></button>
-    <button type="button" class="btn btn-danger" ng-click="onDone()" translate="productDetails.onDone"></button>
-  </div>
+	<div class="col-md-6 text-center equal-height">
+		<img ng-src="{{newProduct.imagePath}}" alt="{{ 'prodcut.ProductImage' | translate }}" class="product-photo-big"/>
+	</div>
+	<div class="col-md-6 equal-height font-lg">
+		<p><span translate="product.Price"></span>: <span class="pull-right">{{newProduct.price}}</span></p>
+		<p><span translate="product.InStock"></span>: <span class="pull-right">{{newProduct.quantityInStock}}</span></p>
+		<p><span translate="product.Sold"></span>: <span class="pull-right">{{newProduct.quantitySold}}</span></p>
+	</div>	
 </div>

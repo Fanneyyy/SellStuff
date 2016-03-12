@@ -1,0 +1,17 @@
+{
+	"productForm" : {
+		"Title": "Bæta við vöru",
+		"Name": "Nafn",
+		"Price": "Verð",
+		"InStock": "Til á lager",
+		"Sold":    "Fjöldi seldra vara",
+		"Image": "Mynd",
+		"Cancel": "Hætta við",
+		"Submit": "Bæta við",
+		"EnterName": "Sláðu inn nafn",
+		"EnterPrice": "Sláðu inn verð",
+		"EnterInStock": "Sláðu inn fjölda vara á lager",
+		"EnterSold": "Sláðu inn fjölda seldra vara",
+		"EnterImage": "Settu inn slóð myndar"
+	}
+}

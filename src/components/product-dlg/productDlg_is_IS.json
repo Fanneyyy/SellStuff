@@ -1,13 +1,14 @@
 {
 	"productDlg" : {
-		"Title": "Bæta við vöru",
-		"Name": "Nafn",
-		"Price": "Verð",
-		"InStock": "Til á lager",
-		"Sold":    "Fjöldi seldra vara",
-		"Image": "Mynd",
-		"Cancel": "Hætta við",
-		"Submit": "Bæta við",
+		"TitleAdd":                  "Bæta við vöru",
+		"TitleEdit":                 "Breyta vöru",
+		"Name":                      "Nafn",
+		"Price":                     "Verð",
+		"InStock":                   "Til á lager",
+		"Sold":                      "Fjöldi seldra vara",
+		"Image":                     "Mynd",
+		"Cancel":                    "Hætta við",
+		"Submit":                    "Bæta við",
 		"Messages" : {
 			"LoadFailed":            "Ekki tókst að sækja lista yfir vörur",
 			"SaveSucceeded":         "Nýrri vöru hefur verið bætt við",
@@ -17,11 +18,6 @@
 			"EditFailed":            "Því miður tókst ekki að breyta vöru",
 			"EditCancelled":         "Vöru var ekki breytt"
 		},
-		"EnterName": "Sláðu inn nafn",
-		"EnterPrice": "Sláðu inn verð",
-		"EnterInStock": "Sláðu inn fjölda vara á lager",
-		"EnterSold": "Sláðu inn fjölda seldra vara",
-		"EnterImage": "Settu inn slóð myndar",
 		"AddProductButton": "Takkar fyrir bæta við vöru"
 	}
 }

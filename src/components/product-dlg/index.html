@@ -1,0 +1,48 @@
+<uib-tabset active="activeJustified" justified="true" ng-show="edit">
+    <uib-tab index="0" heading="{{ 'productDetails.OnView' | translate }}">
+
+          <div ng-include="'src/components/product-details/productDetails.html'"></div>
+
+          <div class="modal-footer">
+            <div class="btn-group" role="group" aria-label="{{ 'productDetails.ProductDetailsButtons' | translate }}">
+              <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="productDetails.OnDone"></button>
+            </div>
+          </div>
+
+    </uib-tab>
+    <uib-tab index="1" heading="{{ 'productDetails.OnEdit' | translate }}">
+
+      <div class="modal-header">
+        <h3 class="modal-title" translate="productDlg.TitleEdit"></h3>
+      </div>
+      <div class="modal-body">
+        <div ng-include="'src/components/product-form/productForm.html'"></div>
+      </div>
+
+    <div class="modal-footer">
+      <div class="btn-group" role="group" aria-label="{{ 'productDlg.AddProductButton' | translate }}">
+        <button type="button" class="btn btn-success" ng-click="onOk(product)" translate="productDlg.Submit"></button>
+        <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="productDlg.Cancel"></button>
+      </div>
+    </div>
+
+    </uib-tab>
+</uib-tabset>
+
+<div ng-hide="edit">
+
+    <div class="modal-header">
+        <h3 class="modal-title" translate="productDlg.TitleAdd"></h3>
+      </div>
+      <div class="modal-body">
+        <div ng-include="'src/components/product-form/productForm.html'"></div>
+      </div>
+
+    <div class="modal-footer">
+      <div class="btn-group" role="group" aria-label="{{ 'productDlg.AddProductButton' | translate }}">
+        <button type="button" class="btn btn-success" ng-click="onOk(product)" translate="productDlg.Submit"></button>
+        <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="productDlg.Cancel"></button>
+      </div>
+    </div>
+
+</div>

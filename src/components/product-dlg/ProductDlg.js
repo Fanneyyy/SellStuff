@@ -7,7 +7,7 @@ angular.module("project3App").factory("ProductDlg",
             show: function(object) {
                 var modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: "components/product-dlg/productDlg.html",
+                    templateUrl: "components/product-dlg/index.html",
                     controller: "ProductDlgController",
                     resolve: {
                         currentProduct: function () {

@@ -5,6 +5,9 @@ function ProductDlgController($scope, currentProduct) {
 
 	if (currentProduct) {
 		$scope.newProduct = currentProduct;
+		$scope.edit = true;
+	} else {
+		$scope.edit = false;
 	}
 
 	$scope.onOk = function onOk() {
