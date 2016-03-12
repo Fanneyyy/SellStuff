@@ -28,7 +28,7 @@
 
 		<tbody data-link="row" class="rowlink">
 		  <tr ng-repeat="seller in sellers | orderBy:sortType:sortReverse track by seller.id">
-		    <td><a ng-href="#/sellerdetails/{{seller.id}}">{{seller.name}}</a></td>
+		    <td><a ng-href="#/sellerdetails/{{seller.id}}" class="hide-overflow"><p>{{seller.name}}</p></a></td>
 		    <td>{{seller.category}}</td>
 		    <td class="rowlink-skip"><button type="button" ng-click="onEditSeller(seller)" ng-href="#/" title="{{ 'sellers.EditSeller' | translate }}" class="btn btn-success btn-sm pull-right circled"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
 		  </tr>

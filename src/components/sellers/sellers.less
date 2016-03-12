@@ -60,6 +60,22 @@
 	vertical-align: middle;
 }
 
+.hide-overflow p {
+	text-overflow: ellipsis !important;
+	overflow: hidden; 
+	white-space: nowrap;
+}
+
 .tab-content {
 	padding-top: 40px;
 }
+
+@media all and (max-width: 900px) { 
+	h1 { 
+		font-size: 2em; 
+	}
+	.hide-overflow p {
+		max-width: 250px;
+	}
+}
+@media all and (min-width: 1260px) { h1 { font-size: 40px; } } 
