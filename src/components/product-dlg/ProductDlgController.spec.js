@@ -19,7 +19,7 @@ describe("ProductDlgController should be unit tested here", function() {
         scope.$close = function(seller){};
         scope.$dismiss = function(){};
 
-        var SellerDlgController = $controller('ProductDlgController', {
+        var ProductDlgController = $controller('ProductDlgController', {
             $scope: scope,
             currentProduct: mockProduct
         });

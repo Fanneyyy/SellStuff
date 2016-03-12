@@ -12,6 +12,7 @@ function SellerDlgController($scope, currentSeller, $translate) {
 
     $scope.onOk = function onOk() {
         // TODO: Validation
+        
         $scope.$close($scope.newSeller);
     };
 

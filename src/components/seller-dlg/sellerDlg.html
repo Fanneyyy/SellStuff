@@ -2,24 +2,24 @@
   <h3 class="modal-title" ng-model="message">{{message}}</h3>
 </div>
 <div class="modal-body">
-  <form role="form">
+  <form name="sellers" role="form">
     <div class="form-group">
       <label for="name" translate="sellerDlg.Name"></label>
-      <input type="text" ng-model="newSeller.name" class="form-control" id="name" placeholder="{{ 'sellerDlg.EnterName' | translate }}" />
+      <input type="text" ng-model="newSeller.name" class="form-control" id="name" placeholder="{{ 'sellerDlg.EnterName' | translate }}" ng-required="true">
     </div>
     <div class="form-group">
       <label for="category" translate="sellerDlg.Category"></label>
-      <input type="text" ng-model="newSeller.category" class="form-control" id="category" placeholder="{{ 'sellerDlg.EnterCategory' | translate }}" />
+      <input type="text" ng-model="newSeller.category" class="form-control" id="category" placeholder="{{ 'sellerDlg.EnterCategory' | translate }}" ng-required="true">
     </div>
     <div class="form-group">
       <label for="image" translate="sellerDlg.Image"></label>
-      <input type="text" ng-model="newSeller.imagePath" class="form-control" id="image" placeholder="{{ 'sellerDlg.EnterImage' | translate }}" />
+      <input type="text" ng-model="newSeller.imagePath" class="form-control" id="image" placeholder="{{ 'sellerDlg.EnterImage' | translate }}" ng-required="true">
     </div>
   </form>
 </div>
 <div class="modal-footer">
   <div class="btn-group" role="group" aria-label="Add seller buttons">
-    <button type="button" class="btn btn-success" ng-click="onOk(seller)" translate="sellerDlg.Submit"></button>
+    <button class="btn btn-success" ng-click="onOk(seller)" translate="sellerDlg.Submit" ng-disabled="sellers.$invalid"></button>
     <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="sellerDlg.Cancel"></button>
   </div>
 </div>

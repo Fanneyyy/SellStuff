@@ -6,7 +6,7 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 	$scope.sellerId = parseInt($routeParams.sellerid);
 	$scope.products = [];
 	$scope.topTen = [];
-
+	
 	$scope.getTopTen = function getTopTen() {
 		$scope.topTen = _.sortBy($scope.products, _.property('quantitySold')).reverse();
 		$scope.topTen = _.take($scope.topTen, [10]);
@@ -37,7 +37,7 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 			});
 
 		}, function() {
-			centrisNotify.info("The product will not be added.");
+			centrisNotify.warning("The product will not be added.");
 		});
 	};
 
