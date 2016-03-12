@@ -7,7 +7,7 @@
       <label for="name" translate="sellerDlg.Name"></label>
       <input type="text" ng-model="newSeller.name" class="form-control" id="name" placeholder="{{ 'sellerDlg.EnterName' | translate }}" ng-required="true">
     </div>
-    <div class="form-group">
+     <div class="form-group">
       <label for="category" translate="sellerDlg.Category"></label>
       <input type="text" ng-model="newSeller.category" class="form-control" id="category" placeholder="{{ 'sellerDlg.EnterCategory' | translate }}" ng-required="true">
     </div>
@@ -19,7 +19,7 @@
 </div>
 <div class="modal-footer">
   <div class="btn-group" role="group" aria-label="Add seller buttons">
-    <button class="btn btn-success" ng-click="onOk(seller)" translate="sellerDlg.Submit" ng-disabled="sellers.$invalid"></button>
+    <button class="btn btn-success" ng-click="onOk()" translate="sellerDlg.Submit" ng-disabled="sellers.$invalid"></button>
     <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="sellerDlg.Cancel"></button>
   </div>
 </div>

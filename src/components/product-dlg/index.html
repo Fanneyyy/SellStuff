@@ -21,7 +21,7 @@
 
     <div class="modal-footer">
       <div class="btn-group" role="group" aria-label="{{ 'productDlg.AddProductButton' | translate }}">
-        <button type="button" class="btn btn-success" ng-click="onOk(product)" translate="productDlg.Submit"></button>
+        <button type="button" class="btn btn-success" ng-click="onOk(newProduct)" translate="productDlg.Submit"></button>
         <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="productDlg.Cancel"></button>
       </div>
     </div>
@@ -35,12 +35,14 @@
         <h3 class="modal-title" translate="productDlg.TitleAdd"></h3>
       </div>
       <div class="modal-body">
-        <div ng-include="'src/components/product-form/productForm.html'"></div>
+        <product-form
+          new-product="newProduct"
+        ></product-form>
       </div>
 
     <div class="modal-footer">
       <div class="btn-group" role="group" aria-label="{{ 'productDlg.AddProductButton' | translate }}">
-        <button type="button" class="btn btn-success" ng-click="onOk(product)" translate="productDlg.Submit"></button>
+        <button type="button" class="btn btn-success" ng-click="onOk(newProduct)" translate="productDlg.Submit"></button>
         <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="productDlg.Cancel"></button>
       </div>
     </div>

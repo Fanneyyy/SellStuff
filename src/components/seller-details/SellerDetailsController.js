@@ -32,6 +32,7 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 			AppResource.addSellerProduct($scope.sellerId, product).success(function (product) {
 				centrisNotify.success("productDlg.Messages.SaveSucceeded");
 				$scope.products.push(product);
+				$scope.getTopTen();
 			}).error(function() {
 				centrisNotify.error("productDlg.Messages.SaveFailed");
 			});
@@ -53,6 +54,7 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 				current.quantitySold  	= product.quantitySold;
 				current.quantityInStock = product.quantityInStock;
 				current.imagePath 		= product.imagePath;
+				$scope.getTopTen();
 				centrisNotify.success(product.name + " has been successfully edited.");
 			}).error(function() {
 				centrisNotify.error(p.name + "was not edited.");

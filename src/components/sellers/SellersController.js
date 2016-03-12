@@ -18,7 +18,6 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
     $scope.onAddSeller = function onAddSeller() {
 
         SellerDlg.show().then(function(seller) {
-            
             AppResource.addSeller(seller).success(function (seller) {
                 centrisNotify.success("sellers.Messages.SaveSucceeded");
             }).error(function() {

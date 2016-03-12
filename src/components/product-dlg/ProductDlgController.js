@@ -3,6 +3,8 @@
 angular.module("project3App").controller("ProductDlgController",
 function ProductDlgController($scope, currentProduct) {
 
+	$scope.newProduct = {};
+
 	if (currentProduct) {
 		$scope.newProduct = currentProduct;
 		$scope.edit = true;
