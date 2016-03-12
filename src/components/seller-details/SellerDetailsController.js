@@ -41,12 +41,12 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 		});
 	};
 
-	$scope.onEditProduct = function onEditProduct(p) {
+	$scope.onViewProduct = function onViewProduct(p) {
+		
+		var newProduct = $.extend({}, p);
+		ProductDlg.show(newProduct).then(function(product) {
 
-		var oldProduct = $.extend({}, p);
-		ProductDlg.show(oldProduct).then(function(product) {
-
-			AppResource.updateSellerProduct($scope.sellerId, oldProduct.id, product).success(function (product) {
+			AppResource.updateSellerProduct($scope.sellerId, newProduct.id, product).success(function (product) {
 				var current = _.find($scope.products, function(o){ return o.id === product.id;});
 				current.name 			= product.name;
 				current.price  			= product.price;
@@ -55,16 +55,12 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 				current.imagePath 		= product.imagePath;
 				centrisNotify.success(product.name + " has been successfully edited.");
 			}).error(function() {
-				centrisNotify.error(oldProduct.name + "was not edited.");
+				centrisNotify.error(p.name + "was not edited.");
 			});
 
 		}, function() {
-			centrisNotify.info(oldProduct.name + " will not be edited.");
+			centrisNotify.info(p.name + " will not be edited.");
 		});
-	};
 
-	$scope.onViewProduct = function onViewProduct(p) {
-		ProductDlg.show(p).then(function(p) {
-		});
 	};
 });
