@@ -9,6 +9,7 @@ function SellerDlgController($scope, currentSeller) {
 
     $scope.onOk = function onOk() {
         // TODO: Validation
+        
         $scope.$close($scope.newSeller);
     };
 
