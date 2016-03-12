@@ -44,6 +44,7 @@ function AppResource() {
 	];
 
 	var sellerId = 5;
+	var productId = 22;
 
 	var mockProducts = [
 		createProduct(1,  1, "Ullarvettlingar",  1899, 500, 12, "http://i.imgur.com/MZOmRnH.jpg"),
@@ -164,15 +165,14 @@ function AppResource() {
 				var seller = _.find(mockSellers, function(o){ return o.id === id;});
 				if (seller) {
 					success = true;
-					var productId = this.getSellerProducts(id).length;
-					product.id = productId+1;
+					product.id = productId++;
 					mockProducts.push({
 						id: seller.id,
 						product: product
 					});
 				}
 			}
-
+			console.log(mockProducts);
 			return mockHttpPromise(mockResource.successAddSellerProduct, product);
 		},
 
