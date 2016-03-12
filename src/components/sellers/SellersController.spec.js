@@ -33,7 +33,7 @@ describe("SellersController should be unit tested here", function() {
         it("change sortType to 'speed'", function() {
             scope.sortColumns('speed');
             expect(scope.sortType).toEqual('speed');
-        })
+        });
     });
 
     describe("Testing added seller", function() {
