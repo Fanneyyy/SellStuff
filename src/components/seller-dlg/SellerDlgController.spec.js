@@ -3,7 +3,7 @@
 describe("SellerDlgController should be unit tested here", function() {
 
     var scope;
-
+    var SellerDlgController;
     var mockSeller;
 
     beforeEach(module("project3App"));
@@ -19,7 +19,7 @@ describe("SellerDlgController should be unit tested here", function() {
         scope.$close = function(seller){};
         scope.$dismiss = function(){};
 
-        var SellerDlgController = $controller('SellerDlgController', {
+        SellerDlgController = $controller('SellerDlgController', {
             $scope: scope,
             currentSeller: mockSeller,
         });
@@ -36,4 +36,11 @@ describe("SellerDlgController should be unit tested here", function() {
         scope.onCancel();
         expect(scope.$dismiss).toHaveBeenCalled();
     });
+    it('should change scope message to sellerDlg.TitleAdd', inject(function($controller) {
+        SellerDlgController = $controller('SellerDlgController', {
+            $scope: scope,
+            currentSeller: undefined,
+        });
+        expect(scope.message).toEqual("sellerDlg.TitleAdd");
+    }));
 });
