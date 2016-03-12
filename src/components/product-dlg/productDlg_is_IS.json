@@ -19,6 +19,8 @@
 		},
 		"EnterName": "Sláðu inn nafn",
 		"EnterPrice": "Sláðu inn verð",
+		"EnterInStock": "Sláðu inn fjölda vara á lager",
+		"EnterSold": "Sláðu inn fjölda seldra vara",
 		"EnterImage": "Settu inn slóð myndar",
 		"AddProductButton": "Takkar fyrir bæta við vöru"
 	}

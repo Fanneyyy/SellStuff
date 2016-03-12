@@ -20,6 +20,8 @@
 		"EnterName": "Enter name",
 		"EnterPrice": "Enter price",
 		"EnterImage": "Enter image path",
+		"EnterInStock": "Enter number of products in stock",
+		"EnterSold": "Enter number of products sold",
 		"AddProductButton": "Add Product Buttons"
 	}
 }
