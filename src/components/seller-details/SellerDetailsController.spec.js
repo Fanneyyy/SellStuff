@@ -10,9 +10,9 @@ describe("SellerDetailsController should be unit tested here", function() {
                 then: function(fn) {
 
                 } 
-            }
+            };
         }
-    }
+    };
 
 
     beforeEach(module("project3App"));

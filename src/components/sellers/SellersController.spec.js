@@ -11,9 +11,9 @@ describe("SellersController should be unit tested here", function() {
 
 
                 } 
-            }
+            };
         }
-    }
+    };
 
     beforeEach(module("project3App"));
 
