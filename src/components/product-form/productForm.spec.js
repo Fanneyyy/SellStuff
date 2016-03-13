@@ -4,7 +4,7 @@ describe("productForm directive", function() {
     var compile;
     var element;
     beforeEach(module("project3App"));
-    beforeEach(module('src/components/seller-details/index.html'));
+    beforeEach(module('src/components/product-dlg/index.html'));
     beforeEach(inject(function($rootScope, $compile) {
         element = angular.element('<product-form new-product="newProduct"></product-form>');
         scope = $rootScope.$new();

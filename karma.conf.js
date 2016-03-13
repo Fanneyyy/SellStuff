@@ -34,7 +34,7 @@ module.exports = function(config) {
       'src/shared/**/*.js',
       'src/app.js',
       'src/components/**/*.js',
-      'src/components/product/product.html',
+      'src/components/product-dlg/index.html',
       'src/components/seller-details/index.html'
     ],
 
