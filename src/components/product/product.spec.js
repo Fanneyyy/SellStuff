@@ -6,9 +6,9 @@ describe("product directive", function() {
 	var element;
 	var backend;
 	beforeEach(module("project3App"));
-	beforeEach(module('src/components/seller-details/index.html'))
+	beforeEach(module('src/components/seller-details/index.html'));
 	beforeEach(inject(function($rootScope, $compile) {
-		element = angular.element('<product product="product" on-edit="onViewProduct(product)"> </product>')
+		element = angular.element('<product product="product" on-edit="onViewProduct(product)"> </product>');
 		scope = $rootScope.$new();
 		scope.product = {
 			id: 1,
