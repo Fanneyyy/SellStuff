@@ -11,7 +11,7 @@
 		"EnterCategory":             "Enter category",
 		"EnterImage":                "Enter image path",
 		"Validation": {
-			"Required":              "Please fill out this field",
+			"Required":              "Required field",
 			"TooLong":               "This name is too long",
 			"URL":                   "Please enter an URL"
 		}
