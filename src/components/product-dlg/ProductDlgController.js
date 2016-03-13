@@ -21,4 +21,8 @@ function ProductDlgController($scope, currentProduct) {
 		$scope.$dismiss('cancel');
 	};
 
+	$scope.onDone = function onDone() {
+		$scope.$dismiss('done');
+	};
+
 });
