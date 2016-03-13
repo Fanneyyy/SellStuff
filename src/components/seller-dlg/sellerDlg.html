@@ -14,9 +14,9 @@
         placeholder="{{ 'sellerDlg.EnterName' | translate }}" 
         required="ple fill pu" 
         ng-maxlength=40
-        title="{{ 'sellerDlg.Validation.Required' | translate }}">
+        title="{{ 'sellerDlg.EnterName' | translate }}">
       <span class="error" ng-show="sellers.name.$error.maxlength" translate="sellerDlg.Validation.TooLong"></span>
-      <span class="error" ng-show="sellers.name.$error.required" translate="sellerDlg.Validation.Required"></span>
+      <span class="error" ng-show="hasSubmitted && sellers.name.$error.required" translate="sellerDlg.Validation.Required"></span>
       </div>
      <div class="form-group">
       <label for="category" translate="sellerDlg.Category"></label>
@@ -29,9 +29,9 @@
       placeholder="{{ 'sellerDlg.EnterCategory' | translate }}" 
       ng-required="true" 
       ng-maxlength="20"
-      title="{{ 'sellerDlg.Validation.Required' | translate }}">
+      title="{{ 'sellerDlg.EnterCategory' | translate }}">
       <span class="error" ng-show="sellers.category.$error.maxlength" translate="sellerDlg.Validation.TooLong"></span>
-      <span class="error" ng-show="sellers.category.$error.required" translate="sellerDlg.Validation.Required"></span>
+      <span class="error" ng-show="hasSubmitted && sellers.category.$error.required" translate="sellerDlg.Validation.Required"></span>
     </div>
     <div class="form-group">
       <label for="image" translate="sellerDlg.Image"></label>
@@ -43,15 +43,15 @@
       id="image" 
       placeholder="{{ 'sellerDlg.EnterImage' | translate }}" 
       ng-required="true"
-      title="{{ 'sellerDlg.Validation.Required' | translate }}">
-      <span class="error" ng-show="sellers.image.$error.required" translate="sellerDlg.Validation.Required"></span>
+      title="{{ 'sellerDlg.EnterImage' | translate }}">
+      <span class="error" ng-show="hasSubmitted && sellers.image.$error.required" translate="sellerDlg.Validation.Required"></span>
       <span class="error" ng-show="sellers.image.$error.url" translate="sellerDlg.Validation.URL"></span>
     </div>
   </form>
 </div>
 <div class="modal-footer">
   <div class="btn-group" role="group" aria-label="Add seller buttons">
-    <button class="btn btn-success" type="submit" translate="sellerDlg.Submit" form="sellers"></button>
+    <button class="btn btn-success" type="submit" translate="sellerDlg.Submit" form="sellers" ng-click="validate()"></button>
     <button type="button" class="btn btn-danger" ng-click="onCancel()" translate="sellerDlg.Cancel"></button>
   </div>
 </div>
