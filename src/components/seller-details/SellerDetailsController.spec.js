@@ -32,6 +32,17 @@ describe("SellerDetailsController should be unit tested here", function() {
             });
             expect(scope.sellerDetails).toEqual(tempSeller);
         }));
+        it("Should not get details from seller that is not available", inject(function($controller) {
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: productDlg,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
+            });
+            var promise = appResource.getSellerDetails(9999);
+            expect(promise.success().error).toBeDefined();
+        }));
 
         it("Should get products from seller with id 1", inject(function($controller) {
             SellerDetailsController = $controller('SellerDetailsController', {
@@ -109,7 +120,6 @@ describe("SellerDetailsController should be unit tested here", function() {
                 $routeParams: routeParams
             });
         }));
-
         it('should add product', function() {
             productDlg.addProduct(mockProduct);
             scope.sellerId = 1;
@@ -127,7 +137,6 @@ describe("SellerDetailsController should be unit tested here", function() {
             });
             scope.onAddProduct();
             expect(centrisNotifier.error).toHaveBeenCalledWith("productDlg.Messages.SaveFailed");
-            appResource.successAddSellerProduct = true;
         }));
     });
     describe("Testing edit products", function() {
@@ -187,6 +196,19 @@ describe("SellerDetailsController should be unit tested here", function() {
             scope.onViewProduct(tempProduct);
             expect(centrisNotifier.error).toHaveBeenCalledWith("productDlg.Messages.EditFailed");
         }));
+        /*
+        it('should cancel the edited product', inject(function($controller, $injector) {
+            var pModal = $injector.get('ProductDlg');
+
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: pModal,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
+            });
+        }));
+*/
 
     });
 });
