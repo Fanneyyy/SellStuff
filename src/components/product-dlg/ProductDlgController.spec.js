@@ -35,9 +35,13 @@ describe("ProductDlgController should be unit tested here", function() {
         scope.onOk();
         expect(scope.$close).toHaveBeenCalledWith(mockProduct);
     });
-    it('should call the function scope.dismiss', function() {
+    it('should call the function scope.dismiss on cancel', function() {
         scope.onCancel();
-        expect(scope.$dismiss).toHaveBeenCalled();
+        expect(scope.$dismiss).toHaveBeenCalledWith('cancel');
+    });
+    it('should call the function scope.dismiss on done', function() {
+        scope.onDone();
+        expect(scope.$dismiss).toHaveBeenCalledWith('done');
     });
     it('should change scope edit to false', inject(function($controller) {
         ProductDlgController = $controller('ProductDlgController', {
