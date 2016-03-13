@@ -48,4 +48,4 @@ The application was developed by Fanney Sigurðardóttir and Kristinn Þorri Þr
 The project can be executed with `gulp`
 
 ## Testing
-The application's code is all tested with unit tests using karma-jasmine. The tests are run by typing `karma-start` inside the project. The coverage can be found in the coverage folder after the tests have been executed.
+The application's code is all tested with unit tests using karma-jasmine. The tests are run by typing `karma start` inside the project. The coverage can be found in the coverage folder after the tests have been executed.

@@ -126,6 +126,15 @@ describe("SellerDetailsController should be unit tested here", function() {
             scope.onAddProduct();
             expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.SaveSucceeded");
         });
+        it('should add product with undefined quantityInStock & quantitySold', function() {
+            var tempProduct = mockProduct;
+            tempProduct.quantityInStock = undefined;
+            tempProduct.quantitySold = undefined;
+            productDlg.addProduct(tempProduct);
+            scope.sellerId = 1;
+            scope.onAddProduct();
+            expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.SaveSucceeded");
+        });
         it('should not add product and give error', inject(function($controller) {
             appResource.successAddSellerProduct = false;
             SellerDetailsController = $controller('SellerDetailsController', {

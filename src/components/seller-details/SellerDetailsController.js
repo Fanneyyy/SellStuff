@@ -28,7 +28,8 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 	$scope.onAddProduct = function onAddProduct() {
 
 		ProductDlg.show().then(function(product) {
-
+			product.quantitySold = (product.quantitySold === undefined) ? 0 : product.quantitySold;
+			product.quantityInStock = (product.quantityInStock === undefined) ? 0 : product.quantityInStock;
 			AppResource.addSellerProduct($scope.sellerId, product).success(function (product) {
 				centrisNotify.success("productDlg.Messages.SaveSucceeded");
 				$scope.products.push(product);
