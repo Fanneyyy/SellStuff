@@ -43,6 +43,11 @@ describe("ProductDlgController should be unit tested here", function() {
         scope.onDone();
         expect(scope.$dismiss).toHaveBeenCalledWith('done');
     });
+    it('should change scope has submited to true', function() {
+        scope.hasSubmitted = false;
+        scope.validate();
+        expect(scope.hasSubmitted).toEqual(true);
+    })
     it('should change scope edit to false', inject(function($controller) {
         ProductDlgController = $controller('ProductDlgController', {
             $scope: scope,

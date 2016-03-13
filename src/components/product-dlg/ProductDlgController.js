@@ -27,7 +27,6 @@ function ProductDlgController($scope, currentProduct) {
 
 	$scope.validate = function validate() {
         $scope.hasSubmitted = true;
-        console.log($scope.hasSubmitted);
     };
 
 });
