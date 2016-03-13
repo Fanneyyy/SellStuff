@@ -1,6 +1,10 @@
 {
 	"sellerDetails" : {
 		"SellerImage":             "Seller Image",
-		"AddProduct":              "Add Product"
+		"AddProduct":              "Add Product",
+        "Messages" : {
+            "DetailsFailed":         "Error while getting information about the seller.",
+            "ProductsFailed":        "Error while getting products from the seller."
+        }
 	}
 }

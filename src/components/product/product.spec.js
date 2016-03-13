@@ -1,10 +1,8 @@
 "use strict";
 describe("product directive", function() {
-	var template = '<product product="product" on-edit="onViewProduct(product)"></product>';
 	var scope;
 	var compile;
 	var element;
-	var backend;
 	beforeEach(module("project3App"));
 	beforeEach(module('src/components/seller-details/index.html'));
 	beforeEach(inject(function($rootScope, $compile) {

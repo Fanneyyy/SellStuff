@@ -16,13 +16,13 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 		$scope.products = products;
 		$scope.getTopTen();
 	}).error(function() {
-		centrisNotify.error("Error while getting products from the seller.");
+		centrisNotify.error("sellerDetails.Messages.ProductsFailed");
 	});
 
 	AppResource.getSellerDetails($scope.sellerId).success(function(details) {
 		$scope.sellerDetails = details;
 	}).error(function() {
-		centrisNotify.error("Error while getting information about the seller.");
+		centrisNotify.error("sellerDetails.Messages.DetailsFailed");
 	});
 
 	$scope.onAddProduct = function onAddProduct() {
@@ -38,7 +38,7 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 			});
 
 		}, function() {
-			centrisNotify.warning("The product will not be added.");
+			centrisNotify.warning("productDlg.Messages.SaveCancelled");
 		});
 	};
 
@@ -55,13 +55,13 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 				current.quantityInStock = product.quantityInStock;
 				current.imagePath 		= product.imagePath;
 				$scope.getTopTen();
-				centrisNotify.success(product.name + " has been successfully edited.");
+				centrisNotify.success("productDlg.Messages.EditSucceeded");
 			}).error(function() {
-				centrisNotify.error(p.name + "was not edited.");
+				centrisNotify.error("productDlg.Messages.EditFailed");
 			});
 
 		}, function() {
-			centrisNotify.info(p.name + " will not be edited.");
+			centrisNotify.info("productDlg.Messages.EditCancelled");
 		});
 
 	};
