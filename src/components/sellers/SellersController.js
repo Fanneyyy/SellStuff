@@ -24,8 +24,6 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
                 centrisNotify.error("sellers.Messages.SaveFailed");
             });
 
-        }, function() {
-            centrisNotify.warning("sellers.Messages.SaveCancelled");
         });
     };
 
@@ -40,8 +38,6 @@ function SellersController($scope, AppResource, SellerDlg, centrisNotify) {
             }).error(function() {
                 centrisNotify.error("sellers.Messages.EditFailed");
             });
-        }, function() {
-            centrisNotify.warning("sellers.Messages.EditCancelled");
         });
     };
 

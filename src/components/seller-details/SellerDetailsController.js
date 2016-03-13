@@ -37,8 +37,6 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 				centrisNotify.error("productDlg.Messages.SaveFailed");
 			});
 
-		}, function() {
-			centrisNotify.warning("productDlg.Messages.SaveCancelled");
 		});
 	};
 
@@ -60,11 +58,6 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 				centrisNotify.error("productDlg.Messages.EditFailed");
 			});
 
-		}, function(msg) {
-			if(msg === 'cancel') {
-				centrisNotify.warning("productDlg.Messages.EditCancelled");
-			}
 		});
-
 	};
 });
