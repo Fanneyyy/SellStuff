@@ -43,9 +43,9 @@ The user can see all sellers in the project in a given table, the table is sorta
 If a specific seller is selected, the user is brought to a new site, that holds additional information, i.e. only the photo is additional, as well as all the sellers products. The user has an option to add new products to the sellers category, as well as viewing the top10 sold products of the given seller. The user can also click on a product, indicated by the hover affect, and get a larger view of the product, with a tab option to edit the product. The form for adding and editing a product has the name required, with a 20 letter maximum, the price is also required and can only contain a number. The in stock and quantity sold are an option but not required. The photo is required and must be an url.
 
 ## Project Implementation
-The application was developed by Fanney Sigurðardóttir and Kristinn Þorri Þrastarson, as a school project. It was devoloped for the latest Google Chrome Browser using Angular.js, HTML5 and CSS, with gulp. Other dependencies are listen in the package.json file and bower.json file.
+The application was developed by Fanney Sigurðardóttir and Kristinn Þorri Þrastarson, as a school project. It was developed for the latest Google Chrome Browser using Angular.js, HTML5 and CSS, with gulp. Other dependencies are listen in the package.json file and bower.json file.
 
 The project can be executed with `gulp`
 
 ## Testing
-The application's code is all tested with unit tests using karma-jasmine. The tests are run by typing `karma-start` inside the prohject. The coverage can be found in the coverage folder after the tests have been executed.
+The application's code is all tested with unit tests using karma-jasmine. The tests are run by typing `karma-start` inside the project. The coverage can be found in the coverage folder after the tests have been executed.
