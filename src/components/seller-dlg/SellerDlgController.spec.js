@@ -6,6 +6,7 @@ describe("SellerDlgController should be unit tested here", function() {
     var SellerDlgController;
     var mockSeller;
 
+
     beforeEach(module("project3App"));
 
     beforeEach(inject(function(AppResource) {
@@ -21,7 +22,7 @@ describe("SellerDlgController should be unit tested here", function() {
 
         SellerDlgController = $controller('SellerDlgController', {
             $scope: scope,
-            currentSeller: mockSeller,
+            currentSeller: mockSeller
         });
 
     }));
