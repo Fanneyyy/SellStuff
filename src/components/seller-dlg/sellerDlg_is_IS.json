@@ -9,6 +9,11 @@
 		"Submit":                    "Bæta við",
 		"EnterName":                 "Sláðu inn nafn",
 		"EnterCategory":             "Sláðu inn flokk",
-		"EnterImage":                "Settu inn slóð myndar"
+		"EnterImage":                "Settu inn slóð myndar",
+		"Validation": {
+			"Required":              "Vinsamlegast fyllið út í þennan dálk",
+			"TooLong":               "Þetta nafn er of langt",
+			"URL":                   "Vinsamlegast setjið inn vefslóð"
+		}
 	}
 }
