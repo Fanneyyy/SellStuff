@@ -11,34 +11,38 @@
 	</div>
 
  	<uib-tabset active="activeJustified" justified="true">
-	    <uib-tab index="0" heading="{{ 'productsTab.All' | translate }}">
+	    <uib-tab index="0" heading="{{ 'productsTab.All' | translate }}" class="top-tab">
 
-	    	<div ng-hide="!products.length" ng-model="products" ng-repeat="product in products">
-				<div class="col-md-4 col-sm-6 col-xs-12 margin-bot">
+		    <div class="flex-container-product">
+		    	<div ng-hide="!products.length" ng-model="products" ng-repeat="product in products">
+					<div class="flex-item-product">
 
-					  <product 
-					  	product="product" 
-					  	on-edit="onViewProduct(product)">
-					  </product>
-				
+						  <product 
+						  	product="product" 
+						  	on-edit="onViewProduct(product)">
+						  </product>
+					
+					</div>
 				</div>
+				<div ng-show="!products.length" class="text-center" translate="productsTab.NoContent"></div>
 			</div>
-			<div ng-show="!products.length" class="text-center" translate="productsTab.NoContent"></div>
 
 	    </uib-tab>
 	    <uib-tab index="1" heading="{{ 'productsTab.TopTen' | translate }}">
 
-	    	<div ng-hide="!products.length" ng-model="topTen" ng-repeat="product in topTen">
-				<div class="col-md-4 col-sm-6 col-xs-12 margin-bot">
+	    	<div class="flex-container-product">
+		    	<div ng-hide="!products.length" ng-model="topTen" ng-repeat="product in topTen">
+					<div class="flex-item-product">
 
-					  <product 
-					  	product="product" 
-					  	on-edit="onViewProduct(product)">
-					  </product>
-				
+						  <product 
+						  	product="product" 
+						  	on-edit="onViewProduct(product)">
+						  </product>
+					
+					</div>
 				</div>
+				<div ng-show="!products.length" class="text-center" translate="productsTab.NoContent"></div>
 			</div>
-			<div ng-show="!products.length" class="text-center" translate="productsTab.NoContent"></div>
 
 	    </uib-tab>
 	</uib-tabset>

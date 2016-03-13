@@ -1,8 +1,8 @@
-<div class="display-table">
-	<div class="col-md-3 col-sm-12 text-center equal-height">
-		<img ng-src="{{image}}" alt="{{ 'sellerDetails.SellerImage' | translate }}" class="seller-photo"/>
+<div class="flex-container-seller">
+	<div class="flex-item-seller seller-photo-container">
+		<img ng-src="{{image || 'https://az853139.vo.msecnd.net/static/images/not-found.png'}}" alt="{{ 'sellerDetails.SellerImage' | translate }}" class="seller-photo center-block"/>
 	</div>
-	<div class="col-md-9 col-sm-6 equal-height">
+	<div class="flex-item-seller">
 		<h1>{{name}}</h1>
 		<h2>{{category}}</h2>
 	</div>
