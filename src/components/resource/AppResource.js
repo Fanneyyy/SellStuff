@@ -172,7 +172,6 @@ function AppResource() {
 					});
 				}
 			}
-			console.log(mockProducts);
 			return mockHttpPromise(mockResource.successAddSellerProduct, product);
 		},
 
