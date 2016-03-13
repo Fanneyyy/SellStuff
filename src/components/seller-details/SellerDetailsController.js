@@ -60,8 +60,10 @@ function SellerDetailsController($scope, AppResource, ProductDlg, $routeParams, 
 				centrisNotify.error("productDlg.Messages.EditFailed");
 			});
 
-		}, function() {
-			centrisNotify.info("productDlg.Messages.EditCancelled");
+		}, function(msg) {
+			if(msg === 'cancel') {
+				centrisNotify.warning("productDlg.Messages.EditCancelled");
+			}
 		});
 
 	};
