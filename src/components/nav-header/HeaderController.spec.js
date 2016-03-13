@@ -5,13 +5,12 @@ describe("HeaderController ", function() {
 	var scope, mockTranslate;
 
 	mockTranslate = {
-		use: function(str) {
-		}
 	};
 
 	beforeEach(module("project3App"));
 
 	beforeEach(inject(function ($rootScope, $controller) {
+		mockTranslate.use = jasmine.createSpy('use');
 		scope = $rootScope.$new();
 
 		var HeaderController = $controller('HeaderController', {
@@ -19,7 +18,6 @@ describe("HeaderController ", function() {
 			$translate: mockTranslate
 		});
 
-		spyOn(mockTranslate, "use");
 	}));
 
 	it('should declare the function changeLanguage', function() {

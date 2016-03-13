@@ -16,18 +16,16 @@ describe("SellerDlgController should be unit tested here", function() {
 
     beforeEach(inject(function ($rootScope, $controller) {
         scope = $rootScope.$new();
-        scope.$close = function(seller){};
-        scope.$dismiss = function(){};
+        scope.$close = jasmine.createSpy('$close');
+        scope.$dismiss = jasmine.createSpy('$dismiss');
 
         SellerDlgController = $controller('SellerDlgController', {
             $scope: scope,
             currentSeller: mockSeller,
         });
 
-        spyOn(scope, "$close");
-        spyOn(scope, "$dismiss");
-
     }));
+
     it('should call the function scope.close with mockSeller', inject(function(AppResource) {
         scope.onOk();
         expect(scope.$close).toHaveBeenCalledWith(mockSeller);

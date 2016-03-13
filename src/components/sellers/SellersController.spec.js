@@ -5,12 +5,6 @@ describe("SellersController should be unit tested here", function() {
     var SellersController, scope, mockSeller, appResource, sellerDlg, centrisNotifier;
 
     centrisNotifier = {
-        success: function(msg) {
-        },
-        error: function(msg) {
-        },
-        warning: function(msg) {
-        }
     };
     describe("Testing sort", function() {
         beforeEach(module("project3App"));
@@ -20,6 +14,8 @@ describe("SellersController should be unit tested here", function() {
             appResource.getSellerDetails(1).success(function(details) {
                 mockSeller = details;
             });
+            centrisNotifier.success = jasmine.createSpy('success');
+            centrisNotifier.error = jasmine.createSpy('error');
             SellersController = $controller('SellersController', {
                 $scope: scope,
                 SellerDlg: sellerDlg,
@@ -57,15 +53,14 @@ describe("SellersController should be unit tested here", function() {
             appResource.getSellerDetails(1).success(function(details) {
                 mockSeller = details;
             });
+            centrisNotifier.success = jasmine.createSpy('success');
+            centrisNotifier.error = jasmine.createSpy('error');
             SellersController = $controller('SellersController', {
                 $scope: scope,
                 SellerDlg: sellerDlg,
                 AppResource: appResource,
                 centrisNotify: centrisNotifier
             });
-            spyOn(centrisNotifier, "success");
-            spyOn(centrisNotifier, "error");
-            spyOn(centrisNotifier, "warning");
         }));
         it('should add seller', function() {
             sellerDlg.addSeller(mockSeller);
@@ -84,62 +79,62 @@ describe("SellersController should be unit tested here", function() {
             expect(centrisNotifier.error).toHaveBeenCalledWith("sellers.Messages.SaveFailed");
         }));
     });
-    // describe("Testing edit products", inject(function($controller) {
+    describe("Testing edit seller", function() {
+        var sellerDlgEdit = {
+            show: function(object) {
+                var seller = object;
+                    return {
+                    then: function(fn) {
+                        fn(seller);
+                    }
+                };
+            }
+        };
 
-        
-    //     beforeEach(module("project3App"));
-    //     beforeEach(inject(function ($rootScope, $injector, $controller) {
-    //         scope = $rootScope.$new();
-    //         appResource = $injector.get('AppResource');
-    //         appResource.getSellerDetails(1).success(function(details) {
-    //             mockSeller = details;
-    //         });
-    //         appResource.updateSellerProduct = function(sellerId, oldProductId, newProduct) {
-    //             return {
-    //                 success: function(product) {
-    //                     var current;
-    //                     current.name            = "Svenni";
-    //                     current.price           = "133";
-    //                     current.quantitySold    = "1337";
-    //                     current.quantityInStock = "13";
-    //                     current.imagePath       = "test";
-    //                 }
-    //             };
-    //         };
-    //         appResource.getSellerProducts(1).success(function(details) {
-    //             mockProduct = details[0];
-    //         });
-    //         productDlg = {
-    //             show: function(object) {
-    //                 var product = object;
-    //                 return {
-    //                     then: function(fn) {
-    //                         fn(product);
-    //                     }
-    //                 };
-    //             }
-    //         };
-    //         SellerDetailsController = $controller('SellerDetailsController', {
-    //             $scope: scope,
-    //             ProductDlg: productDlg,
-    //             AppResource: appResource,
-    //             centrisNotify: centrisNotifier
-    //         });
-    //         spyOn(centrisNotifier, "success");
-    //         spyOn(centrisNotifier, "error");
-    //         spyOn(centrisNotifier, "warning");
-    //     }));
-    //     it('should edit product', function() {
-    //         var product = {
-    //             name: "Svenni",
-    //             price: "1337",
-    //             quantitySold: "130",
-    //             quantityInStock: "90",
-    //             imagePath: "http://static6.businessinsider.com/image/55918b77ecad04a3465a0a63/nbc-fires-donald-trump-after-he-calls-mexicans-rapists-and-drug-runners.jpg"
-    //         };
-    //         scope.onEditProduct(product);
-    //         expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.EditSucceeded");
-    //     });
+        beforeEach(module("project3App"));
+        beforeEach(inject(function ($rootScope, $injector, $controller) {
+            scope = $rootScope.$new();
+            appResource = $injector.get('AppResource');
+            appResource.getSellerDetails(1).success(function(details) {
+                mockSeller = details;
+            });
+            centrisNotifier.success = jasmine.createSpy('success');
+            centrisNotifier.error = jasmine.createSpy('error');
+            SellersController = $controller('SellersController', {
+                $scope: scope,
+                SellerDlg: sellerDlgEdit,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier
+            });
+        }));
 
-    // }));
+        it('should edit product', function() {
+            var seller = {
+                id: 1,
+                name: "Sveinn Andri",
+                category: "Lögmaður",
+                imagePath: "http://www.dv.is/media/cache/76/88/7688f7e8bcb3e12569d6427f39732eac.jpg"
+            };
+            scope.onEditSeller(seller);
+            expect(centrisNotifier.success).toHaveBeenCalledWith("sellers.Messages.EditSucceeded");
+        });
+        it('should not edit seller and give error', inject(function($controller) {
+            var seller = {
+                id: 1,
+                name: "Sveinn Andri",
+                category: "Lögmaður",
+                imagePath: "http://www.dv.is/media/cache/76/88/7688f7e8bcb3e12569d6427f39732eac.jpg"
+            };
+            appResource.successUpdateSeller = false;
+            SellersController = $controller('SellersController', {
+                $scope: scope,
+                SellerDlg: sellerDlgEdit,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier
+            });
+            scope.onEditSeller(seller);
+            expect(centrisNotifier.error).toHaveBeenCalledWith("sellers.Messages.EditFailed");
+        }));
+
+    });
 });

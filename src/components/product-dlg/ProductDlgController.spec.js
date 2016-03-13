@@ -6,6 +6,8 @@ describe("ProductDlgController should be unit tested here", function() {
 
     var mockProduct;
 
+    var ProductDlgController;
+
     beforeEach(module("project3App"));
 
     beforeEach(inject(function(AppResource) {
@@ -16,16 +18,17 @@ describe("ProductDlgController should be unit tested here", function() {
 
     beforeEach(inject(function ($rootScope, $controller) {
         scope = $rootScope.$new();
-        scope.$close = function(seller){};
-        scope.$dismiss = function(){};
+        scope.$close = jasmine.createSpy('$close');
+        scope.$dismiss = jasmine.createSpy('$dismiss');
 
-        var ProductDlgController = $controller('ProductDlgController', {
+        ProductDlgController = $controller('ProductDlgController', {
             $scope: scope,
             currentProduct: mockProduct
         });
 
-        spyOn(scope, "$close");
-        spyOn(scope, "$dismiss");
+
+
+
 
     }));
     it('should call the function scope.close with mockProduct', function() {
@@ -36,4 +39,11 @@ describe("ProductDlgController should be unit tested here", function() {
         scope.onCancel();
         expect(scope.$dismiss).toHaveBeenCalled();
     });
+    it('should change scope edit to false', inject(function($controller) {
+        ProductDlgController = $controller('ProductDlgController', {
+            $scope: scope,
+            currentProduct: undefined,
+        });
+        expect(scope.edit).toEqual(false);
+    }));
 });

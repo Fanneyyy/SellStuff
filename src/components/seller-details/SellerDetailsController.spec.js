@@ -5,18 +5,67 @@ describe("SellerDetailsController should be unit tested here", function() {
     var SellerDetailsController, scope, mockSeller, mockProduct, appResource, productDlg, routeParams, centrisNotifier;
 
     centrisNotifier = {
-        success: function(msg) {
-        },
-        error: function(msg) {
-
-        },
-        warning: function(msg) {
-
-        }
     };
 
-    beforeEach(module("project3App"));
+    describe("Testing getSellerDetails and product", function() {
+        beforeEach(module("project3App"));
+        beforeEach(inject(function ($rootScope, $injector, $controller) {
+            scope = $rootScope.$new();
+            appResource = $injector.get('AppResource');
+            centrisNotifier.success = jasmine.createSpy('success');
+            centrisNotifier.error = jasmine.createSpy('error');
+            
+        }));
+        routeParams = {
+            sellerid: 1
+        };
 
+        it("Should get details from seller with id 1", inject(function($controller) {
+            
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: productDlg,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
+            });
+            var tempSeller;
+            appResource.getSellerDetails(1).success(function(details) {
+                tempSeller = details;
+            });
+            expect(scope.sellerDetails).toEqual(tempSeller);
+        }));
+
+        it("Should get products from seller with id 1", inject(function($controller) {
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: productDlg,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
+            });
+            var tempProducts;
+            appResource.getSellerProducts(1).success(function(details) {
+                tempProducts = details;
+            });
+            expect(scope.products).toEqual(tempProducts);
+        }));
+
+        it("Should give error on not getting products from seller", inject(function($controller) {
+            appResource.successGetSellerProducts = false;
+            centrisNotifier.error = jasmine.createSpy('error');
+
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: productDlg,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
+            });
+            expect(centrisNotifier.error).toHaveBeenCalledWith("Error while getting products from the seller.");
+        }));
+
+    });
 
     describe("Testing added products", function() {
         productDlg = {
@@ -42,18 +91,18 @@ describe("SellerDetailsController should be unit tested here", function() {
             appResource.getSellerProducts(1).success(function(details) {
                 mockProduct = details[0];
             });
+            centrisNotifier.success = jasmine.createSpy('success');
+            centrisNotifier.error = jasmine.createSpy('error');
             SellerDetailsController = $controller('SellerDetailsController', {
                 $scope: scope,
                 ProductDlg: productDlg,
                 AppResource: appResource,
                 centrisNotify: centrisNotifier
             });
-            spyOn(centrisNotifier, "success");
-            spyOn(centrisNotifier, "error");
-            spyOn(centrisNotifier, "warning");
         }));
 
         it('should add product', function() {
+            productDlg.addProduct(mockProduct);
             scope.onAddProduct();
             expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.SaveSucceeded");
         });
@@ -69,62 +118,56 @@ describe("SellerDetailsController should be unit tested here", function() {
             expect(centrisNotifier.error).toHaveBeenCalledWith("productDlg.Messages.SaveFailed");
         }));
     });
-    // describe("Testing edit products", inject(function($controller) {
-
+    describe("Testing edit products", function() {
+        var productDlgEdit;
         
-    //     beforeEach(module("project3App"));
-    //     beforeEach(inject(function ($rootScope, $injector, $controller) {
-    //         scope = $rootScope.$new();
-    //         appResource = $injector.get('AppResource');
-    //         appResource.getSellerDetails(1).success(function(details) {
-    //             mockSeller = details;
-    //         });
-    //         appResource.updateSellerProduct = function(sellerId, oldProductId, newProduct) {
-    //             return {
-    //                 success: function(product) {
-    //                     var current;
-    //                     current.name            = "Svenni";
-    //                     current.price           = "133";
-    //                     current.quantitySold    = "1337";
-    //                     current.quantityInStock = "13";
-    //                     current.imagePath       = "test";
-    //                 }
-    //             };
-    //         };
-    //         appResource.getSellerProducts(1).success(function(details) {
-    //             mockProduct = details[0];
-    //         });
-    //         productDlg = {
-    //             show: function(object) {
-    //                 var product = object;
-    //                 return {
-    //                     then: function(fn) {
-    //                         fn(product);
-    //                     }
-    //                 };
-    //             }
-    //         };
-    //         SellerDetailsController = $controller('SellerDetailsController', {
-    //             $scope: scope,
-    //             ProductDlg: productDlg,
-    //             AppResource: appResource,
-    //             centrisNotify: centrisNotifier
-    //         });
-    //         spyOn(centrisNotifier, "success");
-    //         spyOn(centrisNotifier, "error");
-    //         spyOn(centrisNotifier, "warning");
-    //     }));
-    //     it('should edit product', function() {
-    //         var product = {
-    //             name: "Svenni",
-    //             price: "1337",
-    //             quantitySold: "130",
-    //             quantityInStock: "90",
-    //             imagePath: "http://static6.businessinsider.com/image/55918b77ecad04a3465a0a63/nbc-fires-donald-trump-after-he-calls-mexicans-rapists-and-drug-runners.jpg"
-    //         };
-    //         scope.onEditProduct(product);
-    //         expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.EditSucceeded");
-    //     });
+        beforeEach(module("project3App"));
+        beforeEach(inject(function ($rootScope, $injector, $controller) {
+            scope = $rootScope.$new();
+            appResource = $injector.get('AppResource');
+            appResource.getSellerDetails(1).success(function(details) {
+                mockSeller = details;
+            });
+            appResource.getSellerProducts(1).success(function(details) {
+                mockProduct = details[0];
+            });
+            productDlgEdit = {
+                show: function(object) {
+                    var product = object;
+                    return {
+                        then: function(fn) {
+                            fn(product);
+                        }
+                    };
+                }
+            };
+            centrisNotifier.success = jasmine.createSpy('success');
+            centrisNotifier.error = jasmine.createSpy('error');
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: productDlgEdit,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier
+            });
+        }));
+        it('should edit product', function() {
+            var product = {
+                id: 1,
+                product: {
+                    id: 1,
+                    name: "Gúrkur",
+                    price: "699",
+                    quantitySold: "100",
+                    quantityInStock: "100",
+                    imagePath: "http://i.livescience.com/images/i/000/076/219/iFF/cucumbers.jpg"
+                }
+            };
+            /*
+            scope.sellerId = 1;
+            scope.onViewProduct(mockProduct);
+            expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.EditSucceeded");
+            */
+        });
 
-    // }));
+    });
 });
