@@ -1,9 +1,9 @@
-<div class="display-table product-block" ng-model="product" ng-click="edit({product: product})">
-	<div class="col-md-6">
-		<img ng-src="{{product.imagePath}}" alt="{{ 'product.ProductImage' | translate }}" class="product-photo text-center equal-height"/>
+<div ng-model="product" ng-click="edit({product: product})">
+	<div class="product-photo-container">
+		<img ng-src="{{product.imagePath || 'https://az853139.vo.msecnd.net/static/images/not-found.png'}}" alt="{{ 'product.ProductImage' | translate }}" class="product-photo center-block"/>
 	</div>
-	<div class="col-md-6 equal-height">
-		<p><b>{{product.name}}</b></p>
+	<div>
+		<p class="text-center"><b>{{product.name}}</b></p>
 		<p><span translate="product.Price"></span>: <span class="pull-right">{{product.price}}</span></p>
 		<p><span translate="product.InStock"></span>: <span class="pull-right">{{product.quantityInStock}}</span></p>
 		<p><span translate="product.Sold"></span>: <span class="pull-right">{{product.quantitySold}}</span></p>
