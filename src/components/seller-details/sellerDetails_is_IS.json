@@ -1,6 +1,10 @@
 {
 	"sellerDetails" : {
 		"SellerImage":             "Mynd af seljanda",
-		"AddProduct":              "Bæta við vöru"
+		"AddProduct":              "Bæta við vöru",
+        "Messages" : {
+            "DetailsFailed":         "Villa kom upp þegar sóttar voru upplýsingar um seljanda.",
+            "ProductsFailed":        "Villa kom upp þegar sóttar voru vörur seljanda."
+        }
 	}
 }

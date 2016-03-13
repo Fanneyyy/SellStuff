@@ -3,11 +3,12 @@
 describe("SellerDetailsController should be unit tested here", function() {
 // $scope, AppResource, ProductDlg, $routeParams, centrisNotify
     var SellerDetailsController, scope, mockSeller, mockProduct, appResource, productDlg, routeParams, centrisNotifier;
-
-    centrisNotifier = {
-    };
-
+    routeParams = {
+            sellerid: 1
+        };
     describe("Testing getSellerDetails and product", function() {
+        centrisNotifier = {
+        };
         beforeEach(module("project3App"));
         beforeEach(inject(function ($rootScope, $injector, $controller) {
             scope = $rootScope.$new();
@@ -16,10 +17,6 @@ describe("SellerDetailsController should be unit tested here", function() {
             centrisNotifier.error = jasmine.createSpy('error');
             
         }));
-        routeParams = {
-            sellerid: 1
-        };
-
         it("Should get details from seller with id 1", inject(function($controller) {
             
             SellerDetailsController = $controller('SellerDetailsController', {
@@ -51,6 +48,19 @@ describe("SellerDetailsController should be unit tested here", function() {
             expect(scope.products).toEqual(tempProducts);
         }));
 
+        it("Should give error on not getting details from seller", inject(function($controller) {
+            appResource.successLoadSellerDetails = false;
+            centrisNotifier.error = jasmine.createSpy('error');
+
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: productDlg,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
+            });
+            expect(centrisNotifier.error).toHaveBeenCalledWith("sellerDetails.Messages.DetailsFailed");
+        }));
         it("Should give error on not getting products from seller", inject(function($controller) {
             appResource.successGetSellerProducts = false;
             centrisNotifier.error = jasmine.createSpy('error');
@@ -62,12 +72,13 @@ describe("SellerDetailsController should be unit tested here", function() {
                 centrisNotify: centrisNotifier,
                 $routeParams: routeParams
             });
-            expect(centrisNotifier.error).toHaveBeenCalledWith("Error while getting products from the seller.");
+            expect(centrisNotifier.error).toHaveBeenCalledWith("sellerDetails.Messages.ProductsFailed");
         }));
-
     });
 
     describe("Testing added products", function() {
+        centrisNotifier = {
+        };
         productDlg = {
             addProduct: function(mockProduct) {
                 this.product = mockProduct;
@@ -85,9 +96,6 @@ describe("SellerDetailsController should be unit tested here", function() {
         beforeEach(inject(function ($rootScope, $injector, $controller) {
             scope = $rootScope.$new();
             appResource = $injector.get('AppResource');
-            appResource.getSellerDetails(1).success(function(details) {
-                mockSeller = details;
-            });
             appResource.getSellerProducts(1).success(function(details) {
                 mockProduct = details[0];
             });
@@ -97,12 +105,14 @@ describe("SellerDetailsController should be unit tested here", function() {
                 $scope: scope,
                 ProductDlg: productDlg,
                 AppResource: appResource,
-                centrisNotify: centrisNotifier
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
             });
         }));
 
         it('should add product', function() {
             productDlg.addProduct(mockProduct);
+            scope.sellerId = 1;
             scope.onAddProduct();
             expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.SaveSucceeded");
         });
@@ -112,14 +122,18 @@ describe("SellerDetailsController should be unit tested here", function() {
                 $scope: scope,
                 ProductDlg: productDlg,
                 AppResource: appResource,
-                centrisNotify: centrisNotifier
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
             });
             scope.onAddProduct();
             expect(centrisNotifier.error).toHaveBeenCalledWith("productDlg.Messages.SaveFailed");
+            appResource.successAddSellerProduct = true;
         }));
     });
     describe("Testing edit products", function() {
         var productDlgEdit;
+        centrisNotifier = {
+        };
         
         beforeEach(module("project3App"));
         beforeEach(inject(function ($rootScope, $injector, $controller) {
@@ -147,27 +161,32 @@ describe("SellerDetailsController should be unit tested here", function() {
                 $scope: scope,
                 ProductDlg: productDlgEdit,
                 AppResource: appResource,
-                centrisNotify: centrisNotifier
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
             });
         }));
         it('should edit product', function() {
-            var product = {
-                id: 1,
-                product: {
-                    id: 1,
-                    name: "Gúrkur",
-                    price: "699",
-                    quantitySold: "100",
-                    quantityInStock: "100",
-                    imagePath: "http://i.livescience.com/images/i/000/076/219/iFF/cucumbers.jpg"
-                }
-            };
-            /*
-            scope.sellerId = 1;
-            scope.onViewProduct(mockProduct);
+            appResource.getSellerProducts(1).success(function(details) {
+                scope.products = details;
+            });
+            var tempProduct = mockProduct;            
+            scope.onViewProduct(tempProduct);
             expect(centrisNotifier.success).toHaveBeenCalledWith("productDlg.Messages.EditSucceeded");
-            */
+
         });
+        it('should not edit product and give error', inject(function($controller) {
+            appResource.successUpdateSellerProduct = false;
+            SellerDetailsController = $controller('SellerDetailsController', {
+                $scope: scope,
+                ProductDlg: productDlgEdit,
+                AppResource: appResource,
+                centrisNotify: centrisNotifier,
+                $routeParams: routeParams
+            });
+            var tempProduct = mockProduct;
+            scope.onViewProduct(tempProduct);
+            expect(centrisNotifier.error).toHaveBeenCalledWith("productDlg.Messages.EditFailed");
+        }));
 
     });
 });
