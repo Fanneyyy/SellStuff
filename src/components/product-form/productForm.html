@@ -1,22 +1,66 @@
-<form role="form">
+<form id="product" name="product" novalidate role="form" ng-submit="product.$valid && onOk()">
   <div class="form-group">
     <label for="name" translate="productForm.Name"></label>
-    <input type="text" ng-model="newProduct.name" class="form-control" id="name" placeholder="{{ 'productForm.EnterName' | translate }}" />
+    <input 
+      type="text"
+      name="name" 
+      ng-model="newProduct.name" 
+      class="form-control" 
+      id="name" 
+      placeholder="{{ 'productForm.EnterName' | translate }}"
+      ng-required="true"
+      ng-maxlength=20
+      title="{{ 'productForm.EnterName' | translate }}"/>
+      <span class="error" ng-show="product.name.$error.maxlength" translate="productForm.Validation.TooLong"></span>
+      <span class="error" ng-show="hasSubmitted && product.name.$error.required" translate="productForm.Validation.Required"></span>
   </div>
   <div class="form-group">
     <label for="price" translate="productForm.Price"></label>
-    <input type="text" ng-model="newProduct.price" class="form-control" id="price" placeholder="{{ 'productForm.EnterPrice' | translate }}" />
+    <input 
+      type="number" 
+      name="price"
+      ng-model="newProduct.price" 
+      class="form-control" 
+      id="price" 
+      placeholder="{{ 'productForm.EnterPrice' | translate }}"
+      ng-required="true"
+      title="{{ 'productForm.EnterPrice' | translate }}"/>
+      <span class="error" ng-show="hasSubmitted && product.price.$error.required" translate="productForm.Validation.Required"></span>
   </div>
   <div class="form-group">
     <label for="inStock" translate="productForm.InStock"></label>
-    <input type="text" ng-model="newProduct.quantityInStock" class="form-control" id="quantityInStock" placeholder="{{ 'productForm.EnterInStock' | translate }}" />
+    <input 
+      type="number" 
+      name="quantityInStock"
+      ng-model="newProduct.quantityInStock" 
+      class="form-control" 
+      id="quantityInStock" 
+      placeholder="{{ 'productForm.EnterInStock' | translate }}"
+      title="{{ 'productForm.EnterInStock' | translate }}"/>
   </div>
   <div class="form-group">
     <label for="price" translate="productForm.Sold"></label>
-    <input type="text" ng-model="newProduct.quantitySold" class="form-control" id="quantitySold" placeholder="{{ 'productForm.EnterSold' | translate }}" />
+    <input 
+      type="number"
+      name="quantitySold" 
+      ng-model="newProduct.quantitySold" 
+      class="form-control" 
+      id="quantitySold" 
+      placeholder="{{ 'productForm.EnterSold' | translate }}"
+      title="{{ 'productForm.EnterSold' | translate }}"/>
   </div>
   <div class="form-group">
     <label for="image" translate="productForm.Image"></label>
-    <input type="text" ng-model="newProduct.imagePath" class="form-control" id="image" placeholder="{{ 'productForm.EnterImage' | translate }}" />
+    <input 
+      type="url"
+      name="image" 
+      ng-model="newProduct.imagePath" 
+      class="form-control" 
+      id="image" 
+      placeholder="{{ 'productForm.EnterImage' | translate }}"
+      ng-required="true"
+      title="{{ 'productForm.EnterImage' | translate }}"/>
+      <span class="error" ng-show="hasSubmitted && product.image.$error.required" translate="productForm.Validation.Required"></span>
+      <span class="error" ng-show="product.image.$error.url" translate="productForm.Validation.URL"></span>
   </div>
 </form>

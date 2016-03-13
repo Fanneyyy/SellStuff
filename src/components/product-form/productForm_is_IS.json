@@ -12,6 +12,12 @@
 		"EnterPrice": "Sláðu inn verð",
 		"EnterInStock": "Sláðu inn fjölda vara á lager",
 		"EnterSold": "Sláðu inn fjölda seldra vara",
-		"EnterImage": "Settu inn slóð myndar"
+		"EnterImage": "Settu inn slóð myndar",
+		"Validation": {
+			"Required":              "Skilyrtur reitur",
+			"TooLong":               "Þetta nafn er of langt",
+			"Number":                "Vinsamlegast setjið inn tölu",
+			"URL":                   "Vinsamlegast setjið inn vefslóð"
+		}
 	}
 }

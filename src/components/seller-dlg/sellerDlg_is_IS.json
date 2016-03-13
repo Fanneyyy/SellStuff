@@ -11,7 +11,7 @@
 		"EnterCategory":             "Sláðu inn flokk",
 		"EnterImage":                "Settu inn slóð myndar",
 		"Validation": {
-			"Required":              "Nauðsynlegur reitur",
+			"Required":              "Skilyrtur reitur",
 			"TooLong":               "Þetta nafn er of langt",
 			"URL":                   "Vinsamlegast setjið inn vefslóð"
 		}

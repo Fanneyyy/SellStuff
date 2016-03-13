@@ -4,6 +4,7 @@ angular.module("project3App").controller("ProductDlgController",
 function ProductDlgController($scope, currentProduct) {
 
 	$scope.newProduct = {};
+	$scope.hasSubmitted = false;
 
 	if (currentProduct) {
 		$scope.newProduct = currentProduct;
@@ -13,7 +14,6 @@ function ProductDlgController($scope, currentProduct) {
 	}
 
 	$scope.onOk = function onOk() {
-		// TODO: Validation
 		$scope.$close($scope.newProduct);
 	};
 
@@ -24,5 +24,10 @@ function ProductDlgController($scope, currentProduct) {
 	$scope.onDone = function onDone() {
 		$scope.$dismiss('done');
 	};
+
+	$scope.validate = function validate() {
+        $scope.hasSubmitted = true;
+        console.log($scope.hasSubmitted);
+    };
 
 });

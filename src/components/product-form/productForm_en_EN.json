@@ -12,6 +12,12 @@
 		"EnterPrice": "Enter price",
 		"EnterImage": "Enter image path",
 		"EnterInStock": "Enter number of products in stock",
-		"EnterSold": "Enter number of products sold"
+		"EnterSold": "Enter number of products sold",
+		"Validation": {
+			"Required":              "Required field",
+			"TooLong":               "This name is too long",
+			"Number":                "Please enter a number",
+			"URL":                   "Please enter an URL"
+		}
 	}
 }

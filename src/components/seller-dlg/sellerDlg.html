@@ -12,9 +12,9 @@
         class="form-control" 
         id="name" 
         placeholder="{{ 'sellerDlg.EnterName' | translate }}" 
-        required="ple fill pu" 
+        ng-required="true"
         ng-maxlength=40
-        title="{{ 'sellerDlg.EnterName' | translate }}">
+        title="{{ 'sellerDlg.EnterName' | translate }}"/>
       <span class="error" ng-show="sellers.name.$error.maxlength" translate="sellerDlg.Validation.TooLong"></span>
       <span class="error" ng-show="hasSubmitted && sellers.name.$error.required" translate="sellerDlg.Validation.Required"></span>
       </div>
@@ -29,7 +29,7 @@
       placeholder="{{ 'sellerDlg.EnterCategory' | translate }}" 
       ng-required="true" 
       ng-maxlength="20"
-      title="{{ 'sellerDlg.EnterCategory' | translate }}">
+      title="{{ 'sellerDlg.EnterCategory' | translate }}"/>
       <span class="error" ng-show="sellers.category.$error.maxlength" translate="sellerDlg.Validation.TooLong"></span>
       <span class="error" ng-show="hasSubmitted && sellers.category.$error.required" translate="sellerDlg.Validation.Required"></span>
     </div>
@@ -43,7 +43,7 @@
       id="image" 
       placeholder="{{ 'sellerDlg.EnterImage' | translate }}" 
       ng-required="true"
-      title="{{ 'sellerDlg.EnterImage' | translate }}">
+      title="{{ 'sellerDlg.EnterImage' | translate }}"/>
       <span class="error" ng-show="hasSubmitted && sellers.image.$error.required" translate="sellerDlg.Validation.Required"></span>
       <span class="error" ng-show="sellers.image.$error.url" translate="sellerDlg.Validation.URL"></span>
     </div>
